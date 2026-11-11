@@ -31,7 +31,8 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, EmailStr, Field
 from openai import AsyncOpenAI
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
+from emergentintegrations.llm.chat import TextDelta, StreamDone
+from services.ai_gateway import send_once as _gateway_send_once, INTAKE_SUMMARY_SPEC
 
 from legal import TERMS_AND_CONDITIONS, TERMS_VERSION, DISCLAIMER_SHORT
 from mailer import send_email, password_reset_otp_email, account_deletion_otp_email, email_configured
@@ -1295,26 +1296,29 @@ async def search_cases(name: str, page: int = 1, user: dict = Depends(current_us
 async def _generate_intake_summary(client_name: str, situation: str, outcome: str) -> tuple[str, str]:
     """Generate a structured advocate brief from client intake transcript using LLM."""
     try:
-        chat = LlmChat(
-            api_key=EMERGENT_LLM_KEY,
-            session_id=f"intake-summary-{uuid.uuid4()}",
-            system_message=(
-                "You are a legal case briefing assistant for an Indian advocate. "
-                "Given a client intake, produce a structured brief with exactly two sections:\n"
-                "SUMMARY: 2-3 concise sentences summarising the facts and what the client wants.\n"
-                "DHARA ANALYSIS: identify the primary legal issue, the relevant area of law "
-                "(e.g. family, property, criminal, consumer), and 2-3 recommended next actions "
-                "for the advocate (office to visit, document to file, notice to send, etc.).\n"
-                "Write in formal but accessible English. No markdown. No section numbers."
-            ),
-        ).with_model("anthropic", "claude-sonnet-4-5-20250929")
+        system_message = (
+            "You are a legal case briefing assistant for an Indian advocate. "
+            "Given a client intake, produce a structured brief with exactly two sections:\n"
+            "SUMMARY: 2-3 concise sentences summarising the facts and what the client wants.\n"
+            "DHARA ANALYSIS: identify the primary legal issue, the relevant area of law "
+            "(e.g. family, property, criminal, consumer), and 2-3 recommended next actions "
+            "for the advocate (office to visit, document to file, notice to send, etc.).\n"
+            "Write in formal but accessible English. No markdown. No section numbers."
+        )
         prompt = (
             f"Client name: {client_name}\n\n"
             f"Situation (client's own words):\n{situation}\n\n"
             f"Desired outcome:\n{outcome}\n\n"
             "Write the SUMMARY and DHARA ANALYSIS:"
         )
-        result = await chat.send_message(UserMessage(text=prompt))
+        # Routed through the AI gateway (model from INTAKE_SUMMARY_SPEC).
+        result = await _gateway_send_once(
+            f"intake-summary-{uuid.uuid4()}",
+            system_message,
+            prompt,
+            spec=INTAKE_SUMMARY_SPEC,
+            caller="advocate_intake_summary",
+        )
         full_text = str(result or "").strip()
         # Strip any markdown bold/italic artifacts the model may emit
         import re as _re

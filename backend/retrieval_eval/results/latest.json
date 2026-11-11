@@ -1,0 +1,3471 @@
+{
+ "k": 5,
+ "prod_limit": 3,
+ "n_questions": 50,
+ "n_negatives": 10,
+ "index_sections": 33653,
+ "summary": {
+  "keyword_corpus_only": {
+   "n": 50,
+   "hit@1": 5,
+   "hit@3": 6,
+   "hit@5": 6,
+   "mrr@5": 0.11,
+   "hit@5_ci95": [
+    0.04,
+    0.22
+   ],
+   "context_hit": 6,
+   "answered_out_of_scope": "0/10"
+  },
+  "production_approx": {
+   "n": 50,
+   "hit@1": 6,
+   "hit@3": 13,
+   "hit@5": 16,
+   "mrr@5": 0.194,
+   "hit@5_ci95": [
+    0.2,
+    0.46
+   ],
+   "context_hit": 16,
+   "answered_out_of_scope": "4/10"
+  },
+  "bm25": {
+   "n": 50,
+   "hit@1": 9,
+   "hit@3": 17,
+   "hit@5": 19,
+   "mrr@5": 0.259,
+   "hit@5_ci95": [
+    0.26,
+    0.52
+   ],
+   "context_hit": 21,
+   "answered_out_of_scope": "10/10"
+  },
+  "dense_lsa": {
+   "n": 50,
+   "hit@1": 0,
+   "hit@3": 2,
+   "hit@5": 4,
+   "mrr@5": 0.027,
+   "hit@5_ci95": [
+    0.02,
+    0.16
+   ],
+   "context_hit": 7,
+   "answered_out_of_scope": "10/10"
+  },
+  "rrf_bm25_dense": {
+   "n": 50,
+   "hit@1": 3,
+   "hit@3": 9,
+   "hit@5": 10,
+   "mrr@5": 0.115,
+   "hit@5_ci95": [
+    0.1,
+    0.32
+   ],
+   "context_hit": 13,
+   "answered_out_of_scope": "10/10"
+  },
+  "rrf_prod_dense": {
+   "n": 50,
+   "hit@1": 4,
+   "hit@3": 8,
+   "hit@5": 10,
+   "mrr@5": 0.122,
+   "hit@5_ci95": [
+    0.1,
+    0.32
+   ],
+   "context_hit": 13,
+   "answered_out_of_scope": "10/10"
+  },
+  "rrf_prod_bm25": {
+   "n": 50,
+   "hit@1": 9,
+   "hit@3": 17,
+   "hit@5": 17,
+   "mrr@5": 0.253,
+   "hit@5_ci95": [
+    0.22,
+    0.48
+   ],
+   "context_hit": 21,
+   "answered_out_of_scope": "10/10"
+  },
+  "hybrid_all": {
+   "n": 50,
+   "hit@1": 6,
+   "hit@3": 11,
+   "hit@5": 14,
+   "mrr@5": 0.185,
+   "hit@5_ci95": [
+    0.16,
+    0.4
+   ],
+   "context_hit": 15,
+   "answered_out_of_scope": "10/10"
+  },
+  "hybrid_all_gated": {
+   "n": 50,
+   "hit@1": 5,
+   "hit@3": 10,
+   "hit@5": 13,
+   "mrr@5": 0.162,
+   "hit@5_ci95": [
+    0.14,
+    0.38
+   ],
+   "context_hit": 14,
+   "answered_out_of_scope": "9/10"
+  }
+ },
+ "diff_vs_production_approx": {
+  "bm25": {
+   "hit@3_diff": [
+    0.08,
+    -0.04,
+    0.2
+   ],
+   "context_hit_diff": [
+    0.1,
+    -0.02,
+    0.22
+   ]
+  },
+  "dense_lsa": {
+   "hit@3_diff": [
+    -0.22,
+    -0.34,
+    -0.1
+   ],
+   "context_hit_diff": [
+    -0.18,
+    -0.28,
+    -0.08
+   ]
+  },
+  "rrf_bm25_dense": {
+   "hit@3_diff": [
+    -0.08,
+    -0.2,
+    0.04
+   ],
+   "context_hit_diff": [
+    -0.06,
+    -0.16,
+    0.04
+   ]
+  },
+  "rrf_prod_dense": {
+   "hit@3_diff": [
+    -0.1,
+    -0.2,
+    0.0
+   ],
+   "context_hit_diff": [
+    -0.06,
+    -0.14,
+    0.02
+   ]
+  },
+  "rrf_prod_bm25": {
+   "hit@3_diff": [
+    0.08,
+    0.0,
+    0.18
+   ],
+   "context_hit_diff": [
+    0.1,
+    0.02,
+    0.2
+   ]
+  },
+  "hybrid_all": {
+   "hit@3_diff": [
+    -0.04,
+    -0.14,
+    0.06
+   ],
+   "context_hit_diff": [
+    -0.02,
+    -0.1,
+    0.06
+   ]
+  },
+  "hybrid_all_gated": {
+   "hit@3_diff": [
+    -0.06,
+    -0.16,
+    0.02
+   ],
+   "context_hit_diff": [
+    -0.04,
+    -0.12,
+    0.04
+   ]
+  }
+ },
+ "mean_ms_per_question_all_configs": 21.2,
+ "per_question": [
+  {
+   "id": "q01",
+   "question": "Someone stole my phone from my bag while I was travelling in a bus",
+   "expected": [
+    "BNS:303",
+    "BNS:305"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.184"
+    ],
+    "production_approx": [
+     "The Railways Act, 1989 s.172",
+     "The National Institutes of Technolog s.34",
+     "The Metro Railways (Operation and Ma s.26"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.356",
+     "The Supreme Court Judges (Salaries a s.22",
+     "The High Court Judges Salaries and C s.22"
+    ],
+    "dense_lsa": [
+     "The Metro Railways (Operation and Ma s.25",
+     "The Metro Railways (Operation and Ma s.24",
+     "The Railways Act, 1989 s.55"
+    ],
+    "rrf_bm25_dense": [
+     "The Metro Railways (Operation and Ma s.25",
+     "The Railways Act, 1989 s.55",
+     "The Railways Act, 1989 s.156"
+    ],
+    "rrf_prod_dense": [
+     "The Metro Railways (Operation and Ma s.26",
+     "The Calcutta Metro Railway (Operatio s.5",
+     "The Railways Act, 1989 s.172"
+    ],
+    "rrf_prod_bm25": [
+     "The Railways Act, 1989 s.172",
+     "The Metro Railways (Operation and Ma s.26",
+     "The Calcutta Metro Railway (Operatio s.5"
+    ],
+    "hybrid_all": [
+     "The Metro Railways (Operation and Ma s.26",
+     "The Calcutta Metro Railway (Operatio s.5",
+     "The Metro Railways (Operation and Ma s.25"
+    ],
+    "hybrid_all_gated": [
+     "The Metro Railways (Operation and Ma s.26",
+     "The Calcutta Metro Railway (Operatio s.5",
+     "The Metro Railways (Operation and Ma s.25"
+    ]
+   }
+  },
+  {
+   "id": "q02",
+   "question": "A man on a bike grabbed my gold chain from my neck and rode away",
+   "expected": [
+    "BNS:304"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Indian Succession Act, 1925 s.152",
+     "The Indian Succession Act, 1925 s.142"
+    ],
+    "bm25": [
+     "The Indian Succession Act, 1925 s.152",
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Gold Bonds (Immunities and Exemp s.5"
+    ],
+    "dense_lsa": [
+     "The Navy Act, 1957 s.147",
+     "The Air Force Act, 1950 s.163",
+     "The Army Act, 1950 s.166"
+    ],
+    "rrf_bm25_dense": [
+     "The Navy Act, 1957 s.147",
+     "The Air Force Act, 1950 s.163",
+     "The Army Act, 1950 s.166"
+    ],
+    "rrf_prod_dense": [
+     "The Indian Succession Act, 1925 s.152",
+     "The Indian Succession Act, 1925 s.142",
+     "The Bharatiya Nyaya Sanhita, 2023 s.84"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Indian Succession Act, 1925 s.152",
+     "The Indian Succession Act, 1925 s.142"
+    ],
+    "hybrid_all": [
+     "The Indian Succession Act, 1925 s.152",
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Navy Act, 1957 s.147"
+    ],
+    "hybrid_all_gated": [
+     "The Indian Succession Act, 1925 s.152",
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Navy Act, 1957 s.147"
+    ]
+   }
+  },
+  {
+   "id": "q03",
+   "question": "Two men threatened me with a knife and took my wallet and watch",
+   "expected": [
+    "BNS:309"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Navy Act, 1957 s.41",
+     "The Indian Naval Armament Act, 1923 s.5",
+     "The Commissions of Inquiry Act, 1952 s.8A"
+    ],
+    "bm25": [
+     "The Punjab Laws Act, 1872 s.44",
+     "The Protection of Children from Sexu s.11",
+     "The Bharatiya Nyaya Sanhita, 2023 s.303"
+    ],
+    "dense_lsa": [
+     "The Indo-Tibetan Border Police Force s.22",
+     "The Indo-Tibetan Border Police Force s.27",
+     "The Sashastra Seema Bal Act, 2007 s.22"
+    ],
+    "rrf_bm25_dense": [
+     "The Sashastra Seema Bal Act, 2007 s.22",
+     "The Indo-Tibetan Border Police Force s.22",
+     "The Border Security Force Act, 1968 s.20"
+    ],
+    "rrf_prod_dense": [
+     "The Indo-Tibetan Border Police Force s.22",
+     "The Navy Act, 1957 s.41",
+     "The Indian Naval Armament Act, 1923 s.5"
+    ],
+    "rrf_prod_bm25": [
+     "The Navy Act, 1957 s.41",
+     "The Coast Guard Act, 1978 s.16",
+     "The Commissions of Inquiry Act, 1952 s.8A"
+    ],
+    "hybrid_all": [
+     "The Sashastra Seema Bal Act, 2007 s.22",
+     "The Indo-Tibetan Border Police Force s.22",
+     "The Border Security Force Act, 1968 s.20"
+    ],
+    "hybrid_all_gated": [
+     "The Sashastra Seema Bal Act, 2007 s.22",
+     "The Indo-Tibetan Border Police Force s.22",
+     "The Border Security Force Act, 1968 s.20"
+    ]
+   }
+  },
+  {
+   "id": "q04",
+   "question": "A man keeps following me and messaging me even after I told him to stop",
+   "expected": [
+    "BNS:78"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.354D"
+    ],
+    "production_approx": [
+     "The Bengal Land Revenue Sales Act, 1 s.6",
+     "The Bharatiya Nagarik Suraksha Sanhi s.281",
+     "The Northern India Canal and Drainag s.32"
+    ],
+    "bm25": [
+     "The Indian Telegraph Act, 1885 s.6A",
+     "The Government of Union Territories  s.9",
+     "The Assam Reorganisation (Meghalaya) s.20"
+    ],
+    "dense_lsa": [
+     "The Asiatic Society Act, 1984 s.15",
+     "The Arms Act, 1959 s.44",
+     "The Public Premises (Eviction of Una s.18"
+    ],
+    "rrf_bm25_dense": [
+     "The Asiatic Society Act, 1984 s.15",
+     "The Indian Telegraph Act, 1885 s.6A",
+     "The Arms Act, 1959 s.44"
+    ],
+    "rrf_prod_dense": [
+     "The Coal Bearing Areas (Acquisition  s.27",
+     "The Dadra and Nagar Haveli Act, 1961 s.14",
+     "The Prevention of Cruelty to Animals s.27"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Forward Contracts (Regulation) A s.21",
+     "The Bharatiya Nagarik Suraksha Sanhi s.281"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Forward Contracts (Regulation) A s.21",
+     "The Bharatiya Nagarik Suraksha Sanhi s.281"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Forward Contracts (Regulation) A s.21",
+     "The Bharatiya Nyaya Sanhita, 2023 s.75"
+    ]
+   }
+  },
+  {
+   "id": "q05",
+   "question": "My manager makes unwelcome comments about my body and asks for favours at the office",
+   "expected": [
+    "BNS:75",
+    "POSH:9",
+    "POSH:4"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 2,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.354A"
+    ],
+    "production_approx": [
+     "The Companies Act, 2013 s.202",
+     "The Rashtriya Raksha University Act, s.14",
+     "The Hindi Sahitya Sammelan Act, 1962 s.9"
+    ],
+    "bm25": [
+     "The Companies Act, 2013 s.202",
+     "The Bharatiya Nyaya Sanhita, 2023 s.75",
+     "The Companies Act, 2013 s.286"
+    ],
+    "dense_lsa": [
+     "The Companies Act, 2013 s.215",
+     "The Rashtriya Raksha University Act, s.43",
+     "The Companies Act, 2013 s.202"
+    ],
+    "rrf_bm25_dense": [
+     "The Companies Act, 2013 s.202",
+     "The Companies Act, 2013 s.219",
+     "The Rashtriya Raksha University Act, s.14"
+    ],
+    "rrf_prod_dense": [
+     "The Companies Act, 2013 s.202",
+     "The Rashtriya Raksha University Act, s.14",
+     "The Hindi Sahitya Sammelan Act, 1962 s.12"
+    ],
+    "rrf_prod_bm25": [
+     "The Companies Act, 2013 s.202",
+     "The Companies Act, 2013 s.191",
+     "The Companies Act, 2013 s.286"
+    ],
+    "hybrid_all": [
+     "The Companies Act, 2013 s.202",
+     "The Rashtriya Raksha University Act, s.14",
+     "The Companies Act, 2013 s.191"
+    ],
+    "hybrid_all_gated": [
+     "The Companies Act, 2013 s.202",
+     "The Rashtriya Raksha University Act, s.14",
+     "The Companies Act, 2013 s.191"
+    ]
+   }
+  },
+  {
+   "id": "q06",
+   "question": "My husband and his parents keep harassing me for more dowry",
+   "expected": [
+    "BNS:85",
+    "DOWRY:4",
+    "DOWRY:3"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 4,
+    "bm25": 2,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 3,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Protection of Women from Domestic Vi s.3",
+     "Protection of Women from Domestic Vi s.18",
+     "Indian Penal Code 1860 s.498A"
+    ],
+    "production_approx": [
+     "The Immoral Traffic (Prevention) Act s.17A",
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Maintenance and Welfare of Paren s.4"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Dowry Prohibition Act, 1961 s.4",
+     "The Dowry Prohibition Act, 1961 s.6"
+    ],
+    "dense_lsa": [
+     "The Hindu Adoptions and Maintenance  s.14",
+     "The Hindu Adoptions and Maintenance  s.20",
+     "The Hindu Adoptions and Maintenance  s.11"
+    ],
+    "rrf_bm25_dense": [
+     "The Divorce Act, 1869 s.21",
+     "The Hindu Adoptions and Maintenance  s.20",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144"
+    ],
+    "rrf_prod_dense": [
+     "The Maintenance and Welfare of Paren s.4",
+     "The Hindu Adoptions and Maintenance  s.14",
+     "The Indian Succession Act, 1925 s.44"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Immoral Traffic (Prevention) Act s.17A",
+     "The Dowry Prohibition Act, 1961 s.4"
+    ],
+    "hybrid_all": [
+     "The Maintenance and Welfare of Paren s.4",
+     "The Immoral Traffic (Prevention) Act s.17A",
+     "The Divorce Act, 1869 s.40"
+    ],
+    "hybrid_all_gated": [
+     "The Maintenance and Welfare of Paren s.4",
+     "The Immoral Traffic (Prevention) Act s.17A",
+     "The Divorce Act, 1869 s.40"
+    ]
+   }
+  },
+  {
+   "id": "q07",
+   "question": "My sister died within a few years of marriage after being harassed for dowry",
+   "expected": [
+    "BNS:80"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": null,
+    "hybrid_all_gated": 4
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Indian Christian Marriage Act, 1 s.73",
+     "The Indian Christian Marriage Act, 1 s.71",
+     "The Indian Christian Marriage Act, 1 s.70"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Dowry Prohibition Act, 1961 s.2",
+     "The Dowry Prohibition Act, 1961 s.6"
+    ],
+    "dense_lsa": [
+     "The Parsi Marriage and Divorce Act,  s.3",
+     "The Hindu Marriage Act, 1955 s.7",
+     "The Indian Christian Marriage Act, 1 s.68"
+    ],
+    "rrf_bm25_dense": [
+     "The Indian Christian Marriage Act, 1 s.68",
+     "The Parsi Marriage and Divorce Act,  s.3",
+     "The Hindu Marriage Act, 1955 s.5"
+    ],
+    "rrf_prod_dense": [
+     "The Indian Christian Marriage Act, 1 s.70",
+     "The Indian Christian Marriage Act, 1 s.73",
+     "The Indian Christian Marriage Act, 1 s.68"
+    ],
+    "rrf_prod_bm25": [
+     "The Dowry Prohibition Act, 1961 s.6",
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Dowry Prohibition Act, 1961 s.2"
+    ],
+    "hybrid_all": [
+     "The Indian Christian Marriage Act, 1 s.70",
+     "The Indian Christian Marriage Act, 1 s.68",
+     "The Indian Christian Marriage Act, 1 s.73"
+    ],
+    "hybrid_all_gated": [
+     "The Indian Christian Marriage Act, 1 s.70",
+     "The Dowry Prohibition Act, 1961 s.2",
+     "The Dowry Prohibition Act, 1961 s.6"
+    ]
+   }
+  },
+  {
+   "id": "q08",
+   "question": "A man grabbed a woman and tried to insult her modesty in public",
+   "expected": [
+    "BNS:74"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 3,
+    "bm25": 2,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": 4,
+    "hybrid_all_gated": 4
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.509",
+     "Indian Penal Code 1860 s.354"
+    ],
+    "production_approx": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.267",
+     "The Bharatiya Nyaya Sanhita, 2023 s.74"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.74",
+     "The Rights of Persons with Disabilit s.92"
+    ],
+    "dense_lsa": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.248",
+     "The Bharatiya Nyaya Sanhita, 2023 s.224",
+     "The Prevention of Corruption Act, 19 s.20"
+    ],
+    "rrf_bm25_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.267",
+     "The Delhi Police Act, 1978 s.93",
+     "The Bharatiya Nyaya Sanhita, 2023 s.352"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.267",
+     "The Bharatiya Nyaya Sanhita, 2023 s.352",
+     "The Bharatiya Nagarik Suraksha Sanhi s.248"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.74",
+     "The Bharatiya Nyaya Sanhita, 2023 s.267"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.267",
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.352"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.267",
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.352"
+    ]
+   }
+  },
+  {
+   "id": "q09",
+   "question": "Someone is threatening to kill me over phone calls",
+   "expected": [
+    "BNS:351"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.506"
+    ],
+    "production_approx": [
+     "The Mental Healthcare Act, 2017 s.26"
+    ],
+    "bm25": [
+     "The SAARC Convention (Suppression of s.4",
+     "The Bharatiya Nyaya Sanhita, 2023 s.354",
+     "The Bharatiya Nyaya Sanhita, 2023 s.325"
+    ],
+    "dense_lsa": [
+     "The Victoria Memorial Act, 1903 s.1",
+     "The Sarais' Act, 1867 s.18",
+     "The Citizenship Act, 1955 s.1"
+    ],
+    "rrf_bm25_dense": [
+     "The Sarais' Act, 1867 s.18",
+     "The Victoria Memorial Act, 1903 s.1",
+     "The Citizenship Act, 1955 s.1"
+    ],
+    "rrf_prod_dense": [
+     "The Mental Healthcare Act, 2017 s.26",
+     "The Victoria Memorial Act, 1903 s.1",
+     "The Sarais' Act, 1867 s.18"
+    ],
+    "rrf_prod_bm25": [
+     "The Mental Healthcare Act, 2017 s.26",
+     "The SAARC Convention (Suppression of s.4",
+     "The Bharatiya Nyaya Sanhita, 2023 s.354"
+    ],
+    "hybrid_all": [
+     "The Mental Healthcare Act, 2017 s.26",
+     "The Sarais' Act, 1867 s.18",
+     "The Victoria Memorial Act, 1903 s.1"
+    ],
+    "hybrid_all_gated": [
+     "The Mental Healthcare Act, 2017 s.26"
+    ]
+   }
+  },
+  {
+   "id": "q10",
+   "question": "A shopkeeper took my money and gave me a fake product pretending it was genuine",
+   "expected": [
+    "BNS:318"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.35",
+     "Information Technology Act 2000 s.66D",
+     "Bharatiya Nyaya Sanhita 2023 s.319"
+    ],
+    "production_approx": [
+     "The Bengal Land Revenue Sales Act, 1 s.23"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.233",
+     "The Indian Contract Act, 1872 s.235",
+     "The Companies Act, 2013 s.36"
+    ],
+    "dense_lsa": [
+     "The Promotion and Regulation of Onli s.5",
+     "The Transfer of Property Act, 1882 s.121",
+     "The Damodar Valley Corporation Act,  s.42"
+    ],
+    "rrf_bm25_dense": [
+     "The Agricultural and Processed Food  s.15",
+     "The Marine Products Export Developme s.16",
+     "The Agricultural and Processed Food  s.16"
+    ],
+    "rrf_prod_dense": [
+     "The Bengal Land Revenue Sales Act, 1 s.23",
+     "The Promotion and Regulation of Onli s.5",
+     "The Transfer of Property Act, 1882 s.121"
+    ],
+    "rrf_prod_bm25": [
+     "The Bengal Land Revenue Sales Act, 1 s.23",
+     "The Bharatiya Nyaya Sanhita, 2023 s.233",
+     "The Indian Contract Act, 1872 s.235"
+    ],
+    "hybrid_all": [
+     "The Bengal Land Revenue Sales Act, 1 s.23",
+     "The Agricultural and Processed Food  s.15",
+     "The Marine Products Export Developme s.16"
+    ],
+    "hybrid_all_gated": [
+     "The Bengal Land Revenue Sales Act, 1 s.23",
+     "The Agricultural and Processed Food  s.15",
+     "The Marine Products Export Developme s.16"
+    ]
+   }
+  },
+  {
+   "id": "q11",
+   "question": "Someone posted false stories about me on social media to ruin my reputation",
+   "expected": [
+    "BNS:356"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.500"
+    ],
+    "production_approx": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23",
+     "The Manipur Municipalities Act, 1994 s.134"
+    ],
+    "dense_lsa": [
+     "The Interest-tax Act, 1974 s.24",
+     "The Expenditure-tax Act, 1987 s.27",
+     "The Companies (Profits) Surtax Act,  s.21"
+    ],
+    "rrf_bm25_dense": [
+     "The Interest-tax Act, 1974 s.24",
+     "The Administrators-General Act, 1963 s.50",
+     "The Companies (Profits) Surtax Act,  s.21"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Interest-tax Act, 1974 s.24",
+     "The Expenditure-tax Act, 1987 s.27"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23",
+     "The Manipur Municipalities Act, 1994 s.134"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23",
+     "The Interest-tax Act, 1974 s.24"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23"
+    ]
+   }
+  },
+  {
+   "id": "q12",
+   "question": "My business partner took the money entrusted to him and used it for himself",
+   "expected": [
+    "BNS:316"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Information Technology Act 2000 s.66C",
+     "Indian Penal Code 1860 s.406",
+     "Information Technology Act 2000 s.66D"
+    ],
+    "production_approx": [
+     "The Indian Partnership Act, 1932 s.36",
+     "The Limited Liability Partnership Ac s.66",
+     "The Coinage Act, 2011 s.14"
+    ],
+    "bm25": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.27",
+     "The Indian Partnership Act, 1932 s.15"
+    ],
+    "dense_lsa": [
+     "The Indian Partnership Act, 1932 s.16",
+     "The Indian Partnership Act, 1932 s.12",
+     "The Indian Partnership Act, 1932 s.4"
+    ],
+    "rrf_bm25_dense": [
+     "The Indian Partnership Act, 1932 s.27",
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.12"
+    ],
+    "rrf_prod_dense": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.36",
+     "The Indian Partnership Act, 1932 s.12"
+    ],
+    "rrf_prod_bm25": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.36",
+     "The Indian Contract Act, 1872 s.194"
+    ],
+    "hybrid_all": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.36",
+     "The Indian Partnership Act, 1932 s.12"
+    ],
+    "hybrid_all_gated": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.36",
+     "The Indian Partnership Act, 1932 s.12"
+    ]
+   }
+  },
+  {
+   "id": "q13",
+   "question": "Local goons are demanding money from my shop and threaten to hurt my family if I refuse",
+   "expected": [
+    "BNS:308"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.384"
+    ],
+    "production_approx": [
+     "The Local Authorities Loans Act, 191 s.3",
+     "The Punjab Tenancy Act, 1887. s.95",
+     "The Family Courts Act, 1984 s.3"
+    ],
+    "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.308",
+     "The Bharatiya Nyaya Sanhita, 2023 s.309",
+     "The Bharatiya Nyaya Sanhita, 2023 s.120"
+    ],
+    "dense_lsa": [
+     "The Biological Diversity Act, 2002 s.42",
+     "The Local Authorities Loans Act, 191 s.7",
+     "The Local Authorities Loans Act, 191 s.6"
+    ],
+    "rrf_bm25_dense": [
+     "The Local Authorities Loans Act, 191 s.6",
+     "The Local Authorities Loans Act, 191 s.7",
+     "The Biological Diversity Act, 2002 s.42"
+    ],
+    "rrf_prod_dense": [
+     "The Biological Diversity Act, 2002 s.42",
+     "The Local Authorities Loans Act, 191 s.3",
+     "The Code of Civil Procedure, 1908 s.67"
+    ],
+    "rrf_prod_bm25": [
+     "The Family Courts Act, 1984 s.3",
+     "The Foreign Marriage Act, 1969 s.11",
+     "The Local Authorities Loans Act, 191 s.3"
+    ],
+    "hybrid_all": [
+     "The Local Authorities Loans Act, 191 s.3",
+     "The Biological Diversity Act, 2002 s.42",
+     "The Family Courts Act, 1984 s.3"
+    ],
+    "hybrid_all_gated": [
+     "The Local Authorities Loans Act, 191 s.3",
+     "The Biological Diversity Act, 2002 s.42",
+     "The Family Courts Act, 1984 s.3"
+    ]
+   }
+  },
+  {
+   "id": "q14",
+   "question": "A speeding driver hit and killed a pedestrian",
+   "expected": [
+    "BNS:106",
+    "BNS:281"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [],
+    "bm25": [
+     "The Control of National Highways (La s.31",
+     "The Motor Vehicles Act, 1988 s.183",
+     "The Motor Vehicles Act, 1988 s.134"
+    ],
+    "dense_lsa": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.126",
+     "The Motor Vehicles Act, 1988 s.83"
+    ],
+    "rrf_bm25_dense": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128",
+     "The Motor Vehicles Act, 1988 s.112"
+    ],
+    "rrf_prod_dense": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.126",
+     "The Motor Vehicles Act, 1988 s.83"
+    ],
+    "rrf_prod_bm25": [
+     "The Control of National Highways (La s.31",
+     "The Motor Vehicles Act, 1988 s.183",
+     "The Motor Vehicles Act, 1988 s.134"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128",
+     "The Motor Vehicles Act, 1988 s.112"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128",
+     "The Motor Vehicles Act, 1988 s.112"
+    ]
+   }
+  },
+  {
+   "id": "q15",
+   "question": "My neighbour entered my house without permission while we were away",
+   "expected": [
+    "BNS:329",
+    "BNS:331"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 1,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": 1,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": 1,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.329",
+     "The Inland Vessels Act, 2021 s.82",
+     "The National Commission for Indian S s.29"
+    ],
+    "bm25": [
+     "The Central Provinces Land-Revenue A s.79",
+     "The Delhi Police Act, 1978 s.105",
+     "The Indian Easements Act, 1882 s.18"
+    ],
+    "dense_lsa": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.330",
+     "The Manipur Municipalities Act, 1994 s.191",
+     "The Spices Board Act, 1986 s.37"
+    ],
+    "rrf_bm25_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.330",
+     "The Manipur Municipalities Act, 1994 s.191",
+     "The Spices Board Act, 1986 s.37"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.329",
+     "The Indian Easements Act, 1882 s.18",
+     "The Indian Easements Act, 1882 s.5"
+    ],
+    "rrf_prod_bm25": [
+     "The Indian Easements Act, 1882 s.18",
+     "The Bharatiya Nyaya Sanhita, 2023 s.329",
+     "The Indian Easements Act, 1882 s.5"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.329",
+     "The Indian Easements Act, 1882 s.18",
+     "The Indian Easements Act, 1882 s.5"
+    ],
+    "hybrid_all_gated": [
+     "The Indian Easements Act, 1882 s.18",
+     "The Indian Easements Act, 1882 s.5",
+     "The Bharatiya Nyaya Sanhita, 2023 s.330"
+    ]
+   }
+  },
+  {
+   "id": "q16",
+   "question": "Someone deliberately smashed the windows of my car",
+   "expected": [
+    "BNS:324"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [],
+    "bm25": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Madras District Police Act, 1859 s.39",
+     "The Bharatiya Nyaya Sanhita, 2023 s.302"
+    ],
+    "dense_lsa": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Motor Vehicles Act, 1988 s.198",
+     "The Motor Vehicles Act, 1988 s.180"
+    ],
+    "rrf_bm25_dense": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Salaries and Allowances of Minis s.8",
+     "The Salaries and Allowances of Offic s.8"
+    ],
+    "rrf_prod_dense": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Motor Vehicles Act, 1988 s.198",
+     "The Motor Vehicles Act, 1988 s.180"
+    ],
+    "rrf_prod_bm25": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Madras District Police Act, 1859 s.39",
+     "The Bharatiya Nyaya Sanhita, 2023 s.302"
+    ],
+    "hybrid_all": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Salaries and Allowances of Minis s.8",
+     "The Salaries and Allowances of Offic s.8"
+    ],
+    "hybrid_all_gated": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Salaries and Allowances of Minis s.8",
+     "The Salaries and Allowances of Offic s.8"
+    ]
+   }
+  },
+  {
+   "id": "q17",
+   "question": "A man was beaten badly with a stick and his arm was broken",
+   "expected": [
+    "BNS:117",
+    "BNS:115"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [],
+    "bm25": [
+     "The Armed Forces (Punjab and Chandig s.6",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Indian Succession Act, 1925 s.183"
+    ],
+    "dense_lsa": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.303",
+     "The Bharatiya Nyaya Sanhita, 2023 s.63",
+     "The Bharatiya Nyaya Sanhita, 2023 s.25"
+    ],
+    "rrf_bm25_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.63",
+     "The Bharatiya Sakshya Adhiniyam, 202 s.119",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.303",
+     "The Bharatiya Nyaya Sanhita, 2023 s.63",
+     "The Bharatiya Nyaya Sanhita, 2023 s.25"
+    ],
+    "rrf_prod_bm25": [
+     "The Armed Forces (Punjab and Chandig s.6",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Indian Succession Act, 1925 s.183"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.63",
+     "The Bharatiya Sakshya Adhiniyam, 202 s.119",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.63",
+     "The Bharatiya Sakshya Adhiniyam, 202 s.119"
+    ]
+   }
+  },
+  {
+   "id": "q18",
+   "question": "The police station is refusing to register my complaint about a crime",
+   "expected": [
+    "BNSS:173"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 1,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.173"
+    ],
+    "production_approx": [
+     "The Sarais' Act, 1867 s.6",
+     "The Bharatiya Nagarik Suraksha Sanhi s.186",
+     "The Madras District Police Act, 1859 s.30"
+    ],
+    "bm25": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.22",
+     "The Motor Vehicles Act, 1988 s.48"
+    ],
+    "dense_lsa": [
+     "The Police Act, 1861 s.10",
+     "The Delhi Police Act, 1978 s.3",
+     "The Madras District Police Act, 1859 s.30"
+    ],
+    "rrf_bm25_dense": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Motor Vehicles Act, 1988 s.204"
+    ],
+    "rrf_prod_dense": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Delhi Police Act, 1978 s.11"
+    ],
+    "rrf_prod_bm25": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Manipur (Village Authorities in  s.22"
+    ],
+    "hybrid_all": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Delhi Police Act, 1978 s.11"
+    ],
+    "hybrid_all_gated": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Delhi Police Act, 1978 s.11"
+    ]
+   }
+  },
+  {
+   "id": "q19",
+   "question": "Police picked up my brother without any warrant, is that allowed",
+   "expected": [
+    "BNSS:35",
+    "BNSS:47"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 1,
+    "production_approx": 2,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.35",
+     "Code of Criminal Procedure 1973 s.41"
+    ],
+    "production_approx": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.81",
+     "The Bharatiya Nagarik Suraksha Sanhi s.35",
+     "The Madras District Police Act, 1859 s.22"
+    ],
+    "bm25": [
+     "The Wild Life (Protection) Act, 1972 s.17A",
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32"
+    ],
+    "dense_lsa": [
+     "The Madras District Police Act, 1859 s.36",
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Madras District Police Act, 1859 s.37"
+    ],
+    "rrf_bm25_dense": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32",
+     "The Madras District Police Act, 1859 s.32"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32",
+     "The Madras District Police Act, 1859 s.36"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.81",
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32",
+     "The Madras District Police Act, 1859 s.36"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32",
+     "The Madras District Police Act, 1859 s.36"
+    ]
+   }
+  },
+  {
+   "id": "q20",
+   "question": "The police did not tell me why they arrested me",
+   "expected": [
+    "BNSS:47"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.480"
+    ],
+    "production_approx": [],
+    "bm25": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Bharatiya Nagarik Suraksha Sanhi s.48"
+    ],
+    "dense_lsa": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Madras District Police Act, 1859 s.42",
+     "The Central Industrial Security Forc s.13"
+    ],
+    "rrf_bm25_dense": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Central Industrial Security Forc s.13"
+    ],
+    "rrf_prod_dense": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Madras District Police Act, 1859 s.42",
+     "The Central Industrial Security Forc s.13"
+    ],
+    "rrf_prod_bm25": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Bharatiya Nagarik Suraksha Sanhi s.48"
+    ],
+    "hybrid_all": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Central Industrial Security Forc s.13"
+    ],
+    "hybrid_all_gated": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Central Industrial Security Forc s.13"
+    ]
+   }
+  },
+  {
+   "id": "q21",
+   "question": "How can I get released on bail when the offence is not bailable",
+   "expected": [
+    "BNSS:480",
+    "BNSS:483"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 1,
+    "bm25": 1,
+    "dense_lsa": 4,
+    "rrf_bm25_dense": 2,
+    "rrf_prod_dense": 1,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 1,
+    "hybrid_all_gated": 1
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.478",
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.47",
+     "Code of Criminal Procedure 1973 s.436"
+    ],
+    "production_approx": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Bharatiya Nyaya Sanhita, 2023 s.269",
+     "The Prevention of Money-Laundering A s.45"
+    ],
+    "bm25": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Prevention of Money-Laundering A s.45"
+    ],
+    "dense_lsa": [
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Maritime Anti-Piracy Act, 2022. s.12",
+     "The Chemical Weapons Convention Act, s.47"
+    ],
+    "rrf_bm25_dense": [
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Prevention of Money-Laundering A s.45"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Prevention of Money-Laundering A s.45"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Prevention of Money-Laundering A s.45",
+     "The Narcotic Drugs and Psychotropic  s.37"
+    ],
+    "hybrid_all": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Prevention of Money-Laundering A s.45"
+    ],
+    "hybrid_all_gated": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Narcotic Drugs and Psychotropic  s.37",
+     "The Prevention of Money-Laundering A s.45"
+    ]
+   }
+  },
+  {
+   "id": "q22",
+   "question": "My husband refuses to give money for me and our children",
+   "expected": [
+    "BNSS:144",
+    "HMA:25",
+    "DV:20"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 1,
+    "bm25": 2,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 3,
+    "rrf_prod_dense": 3,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 2,
+    "hybrid_all_gated": 2
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Code of Criminal Procedure 1973 s.125"
+    ],
+    "production_approx": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Divorce Act, 1869 s.21",
+     "The Married Women's Property Act, 18 s.6"
+    ],
+    "bm25": [
+     "The Divorce Act, 1869 s.21",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Muslim Women (Protection of Righ s.6"
+    ],
+    "dense_lsa": [
+     "The Delhi Police Act, 1978 s.106",
+     "The Indian Succession Act, 1925 s.49",
+     "The Hindu Adoptions and Maintenance  s.20"
+    ],
+    "rrf_bm25_dense": [
+     "The Indian Succession Act, 1925 s.49",
+     "The Indian Succession Act, 1925 s.100",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144"
+    ],
+    "rrf_prod_dense": [
+     "The Indian Succession Act, 1925 s.49",
+     "The Indian Succession Act, 1925 s.100",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144"
+    ],
+    "rrf_prod_bm25": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Divorce Act, 1869 s.21",
+     "The Muslim Women (Protection of Righ s.6"
+    ],
+    "hybrid_all": [
+     "The Indian Succession Act, 1925 s.49",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Indian Succession Act, 1925 s.100"
+    ],
+    "hybrid_all_gated": [
+     "The Indian Succession Act, 1925 s.49",
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Indian Succession Act, 1925 s.100"
+    ]
+   }
+  },
+  {
+   "id": "q23",
+   "question": "What is the penalty for riding a two wheeler without a helmet",
+   "expected": [
+    "MV:129",
+    "MV:194D"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.194C",
+     "Motor Vehicles Act 1988 s.129",
+     "Motor Vehicles Act 1988 s.194D"
+    ],
+    "production_approx": [],
+    "bm25": [
+     "The Motor Vehicles Act, 1988 s.129",
+     "The Motor Vehicles Act, 1988 s.123",
+     "The Inchek Tyres Limited and Nationa s.25"
+    ],
+    "dense_lsa": [
+     "The Lalit Kala Akadami (Taking Over  s.8",
+     "The Public Debt Act, 1944 s.27",
+     "The Manipur Municipalities Act, 1994 s.225"
+    ],
+    "rrf_bm25_dense": [
+     "The Public Debt Act, 1944 s.27",
+     "The Lalit Kala Akadami (Taking Over  s.8",
+     "The Apprentices Act, 1961 s.31"
+    ],
+    "rrf_prod_dense": [
+     "The Lalit Kala Akadami (Taking Over  s.8",
+     "The Public Debt Act, 1944 s.27",
+     "The Manipur Municipalities Act, 1994 s.225"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.129",
+     "The Motor Vehicles Act, 1988 s.123",
+     "The Inchek Tyres Limited and Nationa s.25"
+    ],
+    "hybrid_all": [
+     "The Public Debt Act, 1944 s.27",
+     "The Lalit Kala Akadami (Taking Over  s.8",
+     "The Apprentices Act, 1961 s.31"
+    ],
+    "hybrid_all_gated": [
+     "The Apprentices Act, 1961 s.31"
+    ]
+   }
+  },
+  {
+   "id": "q24",
+   "question": "My friend was caught driving after drinking alcohol",
+   "expected": [
+    "MV:185"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 3,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 4,
+    "hybrid_all_gated": 3
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.185",
+     "Motor Vehicles Act 1988 s.181",
+     "Motor Vehicles Act 1988 s.180"
+    ],
+    "production_approx": [
+     "The Motor Vehicles Act, 1988 s.19",
+     "The Motor Vehicles Act, 1988 s.15",
+     "The Motor Vehicles Act, 1988 s.185"
+    ],
+    "bm25": [
+     "The Motor Vehicles Act, 1988 s.185",
+     "The Motor Vehicles Act, 1988 s.203",
+     "The Inflammable Substances Act, 1952 s.3"
+    ],
+    "dense_lsa": [
+     "The Motor Vehicles Act, 1988 s.10",
+     "The Motor Vehicles Act, 1988 s.3",
+     "The Motor Vehicles Act, 1988 s.18"
+    ],
+    "rrf_bm25_dense": [
+     "The Motor Vehicles Act, 1988 s.3",
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.18"
+    ],
+    "rrf_prod_dense": [
+     "The Motor Vehicles Act, 1988 s.4",
+     "The Motor Vehicles Act, 1988 s.19",
+     "The Motor Vehicles Act, 1988 s.17"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.185",
+     "The Motor Vehicles Act, 1988 s.203",
+     "The Motor Vehicles Act, 1988 s.15"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.4",
+     "The Motor Vehicles Act, 1988 s.19",
+     "The Motor Vehicles Act, 1988 s.203"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.4",
+     "The Motor Vehicles Act, 1988 s.203",
+     "The Motor Vehicles Act, 1988 s.185"
+    ]
+   }
+  },
+  {
+   "id": "q25",
+   "question": "Can I drive a car without having a driving licence",
+   "expected": [
+    "MV:3",
+    "MV:181"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 3,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 3,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.185",
+     "Motor Vehicles Act 1988 s.180"
+    ],
+    "production_approx": [
+     "The Motor Vehicles Act, 1988 s.19",
+     "The Motor Vehicles Act, 1988 s.22",
+     "The Motor Vehicles Act, 1988 s.18"
+    ],
+    "bm25": [
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.18",
+     "The Motor Vehicles Act, 1988 s.3"
+    ],
+    "dense_lsa": [
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.16",
+     "The Motor Vehicles Act, 1988 s.29"
+    ],
+    "rrf_bm25_dense": [
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.10",
+     "The Motor Vehicles Act, 1988 s.11"
+    ],
+    "rrf_prod_dense": [
+     "The Motor Vehicles Act, 1988 s.16",
+     "The Motor Vehicles Act, 1988 s.19",
+     "The Motor Vehicles Act, 1988 s.11"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.18",
+     "The Motor Vehicles Act, 1988 s.22",
+     "The Motor Vehicles Act, 1988 s.3"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.11",
+     "The Motor Vehicles Act, 1988 s.18"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.6",
+     "The Motor Vehicles Act, 1988 s.11",
+     "The Motor Vehicles Act, 1988 s.18"
+    ]
+   }
+  },
+  {
+   "id": "q26",
+   "question": "I am driving a vehicle without any insurance cover",
+   "expected": [
+    "MV:146",
+    "MV:196"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 3,
+    "bm25": 3,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": 3,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 1,
+    "hybrid_all_gated": 1
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.196",
+     "Motor Vehicles Act 1988 s.130"
+    ],
+    "production_approx": [
+     "The Motor Vehicles Act, 1988 s.194",
+     "The Inland Vessels Act, 2021 s.66",
+     "The Motor Vehicles Act, 1988 s.196"
+    ],
+    "bm25": [
+     "The Motor Vehicles Act, 1988 s.150",
+     "The Motor Vehicles Act, 1988 s.158",
+     "The Motor Vehicles Act, 1988 s.196"
+    ],
+    "dense_lsa": [
+     "The Insurance Act, 1938 s.32D",
+     "The Motor Vehicles Act, 1988 s.148",
+     "The Delhi Motor Vehicles Taxation Ac s.8"
+    ],
+    "rrf_bm25_dense": [
+     "The Motor Vehicles Act, 1988 s.3",
+     "The Motor Vehicles Act, 1988 s.150",
+     "The Motor Vehicles Act, 1988 s.10"
+    ],
+    "rrf_prod_dense": [
+     "The Motor Vehicles Act, 1988 s.157",
+     "The Motor Vehicles Act, 1988 s.148",
+     "The Motor Vehicles Act, 1988 s.146"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.196",
+     "The Motor Vehicles Act, 1988 s.194",
+     "The Motor Vehicles Act, 1988 s.9"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.146",
+     "The Motor Vehicles Act, 1988 s.3",
+     "The Motor Vehicles Act, 1988 s.196"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.146",
+     "The Motor Vehicles Act, 1988 s.3",
+     "The Motor Vehicles Act, 1988 s.196"
+    ]
+   }
+  },
+  {
+   "id": "q27",
+   "question": "A car hit someone and the driver drove away without helping the injured person",
+   "expected": [
+    "MV:134"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 1,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 3,
+    "rrf_prod_dense": 1,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 1,
+    "hybrid_all_gated": 1
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Motor Vehicles Act 1988 s.134",
+     "Motor Vehicles Act 1988 s.180",
+     "Central Motor Vehicles Rules 1989 s.138"
+    ],
+    "production_approx": [
+     "The Motor Vehicles Act, 1988 s.134"
+    ],
+    "bm25": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Sashastra Seema Bal Act, 2007 s.36",
+     "The Motor Vehicles Act, 1988 s.161"
+    ],
+    "dense_lsa": [
+     "The Motor Vehicles Act, 1988 s.126",
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.122"
+    ],
+    "rrf_bm25_dense": [
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128",
+     "The Motor Vehicles Act, 1988 s.134"
+    ],
+    "rrf_prod_dense": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Motor Vehicles Act, 1988 s.126",
+     "The Motor Vehicles Act, 1988 s.125"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Sashastra Seema Bal Act, 2007 s.36",
+     "The Motor Vehicles Act, 1988 s.161"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Motor Vehicles Act, 1988 s.125",
+     "The Motor Vehicles Act, 1988 s.128"
+    ]
+   }
+  },
+  {
+   "id": "q28",
+   "question": "I bought a washing machine that is defective and the company will not replace it",
+   "expected": [
+    "CPA:35",
+    "CPA:39"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.2"
+    ],
+    "production_approx": [],
+    "bm25": [
+     "The Pre-conception and Pre-natal Dia s.3B",
+     "The Railways Act, 1989 s.98",
+     "The Delhi Municipal Corporation Act, s.370"
+    ],
+    "dense_lsa": [
+     "The Companies Act, 2013 s.304",
+     "The Companies Act, 2013 s.320",
+     "The Companies Act, 2013 s.316"
+    ],
+    "rrf_bm25_dense": [
+     "The Companies Act, 2013 s.265",
+     "The Companies Act, 2013 s.320",
+     "The Companies Act, 2013 s.304"
+    ],
+    "rrf_prod_dense": [
+     "The Companies Act, 2013 s.304",
+     "The Companies Act, 2013 s.320",
+     "The Companies Act, 2013 s.316"
+    ],
+    "rrf_prod_bm25": [
+     "The Pre-conception and Pre-natal Dia s.3B",
+     "The Railways Act, 1989 s.98",
+     "The Delhi Municipal Corporation Act, s.370"
+    ],
+    "hybrid_all": [
+     "The Companies Act, 2013 s.265",
+     "The Companies Act, 2013 s.320",
+     "The Companies Act, 2013 s.304"
+    ],
+    "hybrid_all_gated": []
+   }
+  },
+  {
+   "id": "q29",
+   "question": "How many years do I have to file a consumer case after a problem",
+   "expected": [
+    "CPA:69"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 2,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": 2,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.35"
+    ],
+    "production_approx": [
+     "The Securitisation and Reconstructio s.5A"
+    ],
+    "bm25": [
+     "The Consumer Protection Act, 2019 s.24",
+     "The Consumer Protection Act, 2019 s.18",
+     "The Energy Conservation Act, 2001 s.53"
+    ],
+    "dense_lsa": [
+     "The Copyright Act, 1957 s.26",
+     "The Companies Act, 2013 s.413",
+     "The Copyright Act, 1957 s.27"
+    ],
+    "rrf_bm25_dense": [
+     "The Consumer Protection Act, 2019 s.91",
+     "The Consumer Protection Act, 2019 s.69",
+     "The Consumer Protection Act, 2019 s.90"
+    ],
+    "rrf_prod_dense": [
+     "The Copyright Act, 1957 s.26",
+     "The Securitisation and Reconstructio s.5A",
+     "The Companies Act, 2013 s.413"
+    ],
+    "rrf_prod_bm25": [
+     "The Consumer Protection Act, 2019 s.24",
+     "The Securitisation and Reconstructio s.5A",
+     "The Consumer Protection Act, 2019 s.18"
+    ],
+    "hybrid_all": [
+     "The Consumer Protection Act, 2019 s.91",
+     "The Consumer Protection Act, 2019 s.69",
+     "The Consumer Protection Act, 2019 s.90"
+    ],
+    "hybrid_all_gated": []
+   }
+  },
+  {
+   "id": "q30",
+   "question": "Which consumer forum should I approach for a claim of twenty lakh rupees",
+   "expected": [
+    "CPA:34"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.34"
+    ],
+    "production_approx": [
+     "The Food Safety and Standards Act, 2 s.65",
+     "The Consumer Protection Act, 2019 s.90",
+     "The Consumer Protection Act, 2019 s.21"
+    ],
+    "bm25": [
+     "The Consumer Protection Act, 2019 s.89",
+     "The Petroleum and Natural Gas Regula s.25",
+     "The Consumer Protection Act, 2019 s.90"
+    ],
+    "dense_lsa": [
+     "The Company Secretaries Act, 1980 s.24",
+     "The Actuaries Act, 2006 s.37",
+     "The Chartered Accountants Act, 1949 s.24"
+    ],
+    "rrf_bm25_dense": [
+     "The Company Secretaries Act, 1980 s.24",
+     "The Chartered Accountants Act, 1949 s.24",
+     "The Cost Accountants Act, 1959 s.24"
+    ],
+    "rrf_prod_dense": [
+     "The Indian Antarctic Act, 2022 s.41",
+     "The Industrial Relations Code, 2020 s.86",
+     "The Companies Act, 2013 s.147"
+    ],
+    "rrf_prod_bm25": [
+     "The Consumer Protection Act, 2019 s.90",
+     "The Food Safety and Standards Act, 2 s.65",
+     "The Consumer Protection Act, 2019 s.91"
+    ],
+    "hybrid_all": [
+     "The Indian Antarctic Act, 2022 s.41",
+     "The Consumer Protection Act, 2019 s.90",
+     "The Food Safety and Standards Act, 2 s.65"
+    ],
+    "hybrid_all_gated": [
+     "The Consumer Protection Act, 2019 s.90",
+     "The Food Safety and Standards Act, 2 s.65",
+     "The Consumer Protection Act, 2019 s.91"
+    ]
+   }
+  },
+  {
+   "id": "q31",
+   "question": "How do I ask a government office for information about my pending application",
+   "expected": [
+    "RTI:6"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 1,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": 2,
+    "rrf_bm25_dense": 1,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Right to Information Act 2005 s.6",
+     "Right to Information Act 2005 s.2",
+     "Right to Information Act 2005 s.5"
+    ],
+    "production_approx": [
+     "The Companies Act, 2013 s.348",
+     "The Right to Information Act, 2005 s.13",
+     "The Right to Information Act, 2005 s.16"
+    ],
+    "bm25": [
+     "The New Delhi Municipal Council Act, s.28",
+     "The Delhi Municipal Corporation Act, s.81",
+     "The Comptroller Auditor-General's (D s.12"
+    ],
+    "dense_lsa": [
+     "The Companies Act, 2013 s.402",
+     "The Right to Information Act, 2005 s.6",
+     "The Digital Personal Data Protection s.36"
+    ],
+    "rrf_bm25_dense": [
+     "The Right to Information Act, 2005 s.6",
+     "The Companies Act, 2013 s.402",
+     "The Reserve Bank of India Act, 1934 s.45D"
+    ],
+    "rrf_prod_dense": [
+     "The Right to Information Act, 2005 s.16",
+     "The Repatriation of Prisoners Act, 2 s.5",
+     "The Insolvency and Bankruptcy Code,  s.81"
+    ],
+    "rrf_prod_bm25": [
+     "The Companies Act, 2013 s.348",
+     "The Repatriation of Prisoners Act, 2 s.5",
+     "The Right to Information Act, 2005 s.13"
+    ],
+    "hybrid_all": [
+     "The Repatriation of Prisoners Act, 2 s.5",
+     "The Right to Information Act, 2005 s.16",
+     "The Right to Information Act, 2005 s.13"
+    ],
+    "hybrid_all_gated": [
+     "The Repatriation of Prisoners Act, 2 s.5",
+     "The Right to Information Act, 2005 s.16",
+     "The Right to Information Act, 2005 s.13"
+    ]
+   }
+  },
+  {
+   "id": "q32",
+   "question": "The government office did not reply to my information request within the time limit",
+   "expected": [
+    "RTI:7",
+    "RTI:19"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 2,
+    "production_approx": 1,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": 5,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 1,
+    "hybrid_all_gated": 1
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Right to Information Act 2005 s.6",
+     "Right to Information Act 2005 s.7",
+     "Right to Information Act 2005 s.5"
+    ],
+    "production_approx": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
+     "The Right to Information Act, 2005 s.13"
+    ],
+    "bm25": [
+     "The Right to Information Act, 2005 s.7",
+     "The Limited Liability Partnership Ac s.38",
+     "The Right to Information Act, 2005 s.18"
+    ],
+    "dense_lsa": [
+     "The Digital Personal Data Protection s.36",
+     "The Limited Liability Partnership Ac s.31",
+     "The Prevention of Money-Laundering A s.12A"
+    ],
+    "rrf_bm25_dense": [
+     "The Limited Liability Partnership Ac s.38",
+     "The Right to Information Act, 2005 s.20",
+     "The Right to Information Act, 2005 s.10"
+    ],
+    "rrf_prod_dense": [
+     "The Credit Information Companies (Re s.17",
+     "The Reserve Bank of India Act, 1934 s.45ZH",
+     "The Right to Information Act, 2005 s.16"
+    ],
+    "rrf_prod_bm25": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
+     "The Right to Information Act, 2005 s.18"
+    ],
+    "hybrid_all": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
+     "The Right to Information Act, 2005 s.16"
+    ],
+    "hybrid_all_gated": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
+     "The Right to Information Act, 2005 s.18"
+    ]
+   }
+  },
+  {
+   "id": "q33",
+   "question": "What kind of information can the government refuse to give me",
+   "expected": [
+    "RTI:8"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.173",
+     "Right to Information Act 2005 s.6",
+     "Right to Information Act 2005 s.4"
+    ],
+    "production_approx": [
+     "The Motor Vehicles Act, 1988 s.152"
+    ],
+    "bm25": [
+     "The Central Provinces Tenancy Act, 1 s.17",
+     "The Sarais' Act, 1867 s.6",
+     "The Seeds Act, 1966 s.5"
+    ],
+    "dense_lsa": [
+     "The Digital Personal Data Protection s.36",
+     "The Information Technology Act, 2000 s.67C",
+     "The Right to Information Act, 2005 s.3"
+    ],
+    "rrf_bm25_dense": [
+     "The Prasar Bharati (Broadcasting Cor s.24",
+     "The Digital Personal Data Protection s.36",
+     "The Government Savings Promotion Act s.7A"
+    ],
+    "rrf_prod_dense": [
+     "The Digital Personal Data Protection s.36",
+     "The Motor Vehicles Act, 1988 s.152",
+     "The Information Technology Act, 2000 s.67C"
+    ],
+    "rrf_prod_bm25": [
+     "The Motor Vehicles Act, 1988 s.152",
+     "The Central Provinces Tenancy Act, 1 s.17",
+     "The Sarais' Act, 1867 s.6"
+    ],
+    "hybrid_all": [
+     "The Motor Vehicles Act, 1988 s.152",
+     "The Prasar Bharati (Broadcasting Cor s.24",
+     "The Digital Personal Data Protection s.36"
+    ],
+    "hybrid_all_gated": [
+     "The Motor Vehicles Act, 1988 s.152"
+    ]
+   }
+  },
+  {
+   "id": "q34",
+   "question": "My information request was rejected and I want to challenge that decision",
+   "expected": [
+    "RTI:19"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": 4,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Right to Information Act 2005 s.6",
+     "Right to Information Act 2005 s.4",
+     "Right to Information Act 2005 s.8"
+    ],
+    "production_approx": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
+     "The Aadhaar (Targeted Delivery of Fi s.31"
+    ],
+    "bm25": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.10",
+     "The Right to Information Act, 2005 s.9"
+    ],
+    "dense_lsa": [
+     "The Right to Information Act, 2005 s.10",
+     "The Digital Personal Data Protection s.36",
+     "The Information Technology Act, 2000 s.67C"
+    ],
+    "rrf_bm25_dense": [
+     "The Right to Information Act, 2005 s.10",
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.9"
+    ],
+    "rrf_prod_dense": [
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6"
+    ],
+    "rrf_prod_bm25": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.6"
+    ],
+    "hybrid_all": [
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6"
+    ],
+    "hybrid_all_gated": [
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6"
+    ]
+   }
+  },
+  {
+   "id": "q35",
+   "question": "My husband beats me at home, can I get a court order to stop him",
+   "expected": [
+    "DV:18",
+    "DV:12"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Protection of Women from Domestic Vi s.3"
+    ],
+    "production_approx": [
+     "The Divorce Act, 1869 s.30",
+     "The Divorce Act, 1869 s.28",
+     "The Probation of Offenders Act, 1958 s.11"
+    ],
+    "bm25": [
+     "The Orphanages and other Charitable  s.17",
+     "The Divorce Act, 1869 s.37",
+     "The Special Marriage Act, 1954 s.37"
+    ],
+    "dense_lsa": [
+     "The Administrators-General Act, 1963 s.55",
+     "The Official Trustees Act, 1913 s.27",
+     "The Hindu Marriage Act, 1955 s.28A"
+    ],
+    "rrf_bm25_dense": [
+     "The Divorce Act, 1869 s.37",
+     "The Divorce Act, 1869 s.29",
+     "The Divorce Act, 1869 s.28"
+    ],
+    "rrf_prod_dense": [
+     "The Divorce Act, 1869 s.28",
+     "The Prisoners Act, 1900 s.33",
+     "The Divorce Act, 1869 s.37"
+    ],
+    "rrf_prod_bm25": [
+     "The Immoral Traffic (Prevention) Act s.19",
+     "The Divorce Act, 1869 s.30",
+     "The Divorce Act, 1869 s.37"
+    ],
+    "hybrid_all": [
+     "The Divorce Act, 1869 s.28",
+     "The Divorce Act, 1869 s.37",
+     "The Immoral Traffic (Prevention) Act s.19"
+    ],
+    "hybrid_all_gated": [
+     "The Divorce Act, 1869 s.28",
+     "The Divorce Act, 1869 s.37",
+     "The Immoral Traffic (Prevention) Act s.19"
+    ]
+   }
+  },
+  {
+   "id": "q36",
+   "question": "Can my husband and his family throw me out of the house we live in together",
+   "expected": [
+    "DV:17",
+    "DV:19"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 1,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Protection of Women from Domestic Vi s.17"
+    ],
+    "production_approx": [
+     "The Salary, Allowances and Pension o s.8AC",
+     "The Partition Act, 1893 s.4",
+     "The Sir Jamsetjee Jejeebhoy Baronetc s.11"
+    ],
+    "bm25": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Mental Healthcare Act, 2017 s.19",
+     "The Indian Partnership Act, 1932 s.5"
+    ],
+    "dense_lsa": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Salary, Allowances and Pension o s.2",
+     "The States Reorganisation Act, 1956 s.27"
+    ],
+    "rrf_bm25_dense": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Salary, Allowances and Pension o s.8AC",
+     "The Occupational Safety, Health and  s.77"
+    ],
+    "rrf_prod_dense": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Salary, Allowances and Pension o s.8AC",
+     "The Salaries and Allowances of Offic s.7A"
+    ],
+    "rrf_prod_bm25": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Partition Act, 1893 s.4",
+     "The Mental Healthcare Act, 2017 s.19"
+    ],
+    "hybrid_all": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Salary, Allowances and Pension o s.8AC",
+     "The Partition Act, 1893 s.4"
+    ],
+    "hybrid_all_gated": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Salary, Allowances and Pension o s.8AC",
+     "The Partition Act, 1893 s.4"
+    ]
+   }
+  },
+  {
+   "id": "q37",
+   "question": "How do I complain about sexual harassment by a colleague at my workplace",
+   "expected": [
+    "POSH:9",
+    "POSH:4"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 2,
+    "bm25": 5,
+    "dense_lsa": 3,
+    "rrf_bm25_dense": 2,
+    "rrf_prod_dense": 2,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": 2,
+    "hybrid_all_gated": 2
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Indian Penal Code 1860 s.354A"
+    ],
+    "production_approx": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.2"
+    ],
+    "bm25": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.25",
+     "The Sexual Harassment of Women at Wo s.1"
+    ],
+    "dense_lsa": [
+     "The Sexual Harassment of Women at Wo s.16",
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9"
+    ],
+    "rrf_bm25_dense": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.23"
+    ],
+    "rrf_prod_dense": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.19"
+    ],
+    "rrf_prod_bm25": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.25"
+    ],
+    "hybrid_all": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.19"
+    ],
+    "hybrid_all_gated": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.19"
+    ]
+   }
+  },
+  {
+   "id": "q38",
+   "question": "A stranger used my name and password to pretend to be me online",
+   "expected": [
+    "IT:66C",
+    "IT:66D"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Information Technology Act 2000 s.66C"
+    ],
+    "production_approx": [
+     "The Assisted Reproductive Technology s.23"
+    ],
+    "bm25": [
+     "The Indian Contract Act, 1872 s.235",
+     "The Code on Social Security, 2020 s.86",
+     "The Societies Registration Act, 1860 s.11"
+    ],
+    "dense_lsa": [
+     "The Telecommunications Act, 2023. s.5",
+     "The Patents Act, 1970 s.99",
+     "The Madras City Civil Court Act, 189 s.17"
+    ],
+    "rrf_bm25_dense": [
+     "The Madras City Civil Court Act, 189 s.17",
+     "The New Delhi Municipal Council Act, s.148",
+     "The Bharatiya Nyaya Sanhita, 2023 s.184"
+    ],
+    "rrf_prod_dense": [
+     "The Assisted Reproductive Technology s.23",
+     "The Telecommunications Act, 2023. s.5",
+     "The Patents Act, 1970 s.99"
+    ],
+    "rrf_prod_bm25": [
+     "The Assisted Reproductive Technology s.23",
+     "The Indian Contract Act, 1872 s.235",
+     "The Code on Social Security, 2020 s.86"
+    ],
+    "hybrid_all": [
+     "The Assisted Reproductive Technology s.23",
+     "The Madras City Civil Court Act, 189 s.17",
+     "The New Delhi Municipal Council Act, s.148"
+    ],
+    "hybrid_all_gated": []
+   }
+  },
+  {
+   "id": "q39",
+   "question": "A fraudster pretended to be from my bank and took money from my account online",
+   "expected": [
+    "IT:66D",
+    "BNS:318"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Information Technology Act 2000 s.66D",
+     "National Cyber Crime Reporting Porta s."
+    ],
+    "production_approx": [
+     "The Bengal Land Revenue Sales Act, 1 s.22",
+     "The Promotion and Regulation of Onli s.5",
+     "The Promotion and Regulation of Onli s.6"
+    ],
+    "bm25": [
+     "The Promotion and Regulation of Onli s.5",
+     "The Promotion and Regulation of Onli s.7",
+     "The Promotion and Regulation of Onli s.6"
+    ],
+    "dense_lsa": [
+     "The Warehousing Corporations Act, 19 s.28",
+     "The Export-Import Bank of India Act, s.22",
+     "The Reserve Bank of India Act, 1934 s.20"
+    ],
+    "rrf_bm25_dense": [
+     "The Warehousing Corporations Act, 19 s.28",
+     "The Delhi Municipal Corporation Act, s.107",
+     "The Rampur Raza Library  Act, 1975 s.19"
+    ],
+    "rrf_prod_dense": [
+     "The National Housing Bank Act, 1987 s.30",
+     "The Reserve Bank of India Act, 1934 s.45J",
+     "The Warehousing Corporations Act, 19 s.28"
+    ],
+    "rrf_prod_bm25": [
+     "The Promotion and Regulation of Onli s.5",
+     "The Promotion and Regulation of Onli s.6",
+     "The Promotion and Regulation of Onli s.14"
+    ],
+    "hybrid_all": [
+     "The Warehousing Corporations Act, 19 s.28",
+     "The National Housing Bank Act, 1987 s.30",
+     "The Reserve Bank of India Act, 1934 s.45J"
+    ],
+    "hybrid_all_gated": [
+     "The Warehousing Corporations Act, 19 s.28",
+     "The National Housing Bank Act, 1987 s.30",
+     "The Reserve Bank of India Act, 1934 s.45J"
+    ]
+   }
+  },
+  {
+   "id": "q40",
+   "question": "Someone shared my private photos on the internet without my permission",
+   "expected": [
+    "IT:66E",
+    "IT:67"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Cantonments Act, 2006 s.222",
+     "The New Delhi Municipal Council Act, s.184",
+     "The Private Security Agencies (Regul s.4"
+    ],
+    "bm25": [
+     "The Private Security Agencies (Regul s.17",
+     "The New Delhi Municipal Council Act, s.184",
+     "The Cantonments Act, 2006 s.222"
+    ],
+    "dense_lsa": [
+     "The Companies Act, 2013 s.378ZB",
+     "The Companies Act, 2013 s.45",
+     "The Companies Act, 2013 s.61"
+    ],
+    "rrf_bm25_dense": [
+     "The Life Insurance Corporation Act,  s.5",
+     "The State Bank of India Act, 1955 s.5",
+     "The Companies Act, 2013 s.49"
+    ],
+    "rrf_prod_dense": [
+     "The Private Security Agencies (Regul s.4",
+     "The Cantonments Act, 2006 s.222",
+     "The Companies Act, 2013 s.378ZB"
+    ],
+    "rrf_prod_bm25": [
+     "The Cantonments Act, 2006 s.222",
+     "The New Delhi Municipal Council Act, s.184",
+     "The Private Security Agencies (Regul s.4"
+    ],
+    "hybrid_all": [
+     "The Private Security Agencies (Regul s.4",
+     "The Cantonments Act, 2006 s.222",
+     "The New Delhi Municipal Council Act, s.184"
+    ],
+    "hybrid_all_gated": [
+     "The Private Security Agencies (Regul s.4",
+     "The Cantonments Act, 2006 s.222",
+     "The New Delhi Municipal Council Act, s.184"
+    ]
+   }
+  },
+  {
+   "id": "q41",
+   "question": "My landlord wants me to leave the rented house but we never signed any written agreement",
+   "expected": [
+    "TPA:106"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Delhi Police Act, 1978 s.141",
+     "The Bharatiya Sakshya Adhiniyam, 202 s.65",
+     "The Customs Act, 1962 s.97"
+    ],
+    "bm25": [
+     "The Delhi Rent Control Act, 1958 s.26",
+     "The Delhi Rent Control Act, 1958 s.7",
+     "The Central Provinces Tenancy Act, 1 s.67"
+    ],
+    "dense_lsa": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.4",
+     "The Central Provinces Tenancy Act, 1 s.60"
+    ],
+    "rrf_bm25_dense": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.4",
+     "The Punjab Tenancy Act, 1887. s.110"
+    ],
+    "rrf_prod_dense": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Central Provinces Tenancy Act, 1 s.60",
+     "The Delhi Rent Control Act, 1958 s.4"
+    ],
+    "rrf_prod_bm25": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.26",
+     "The Delhi Rent Control Act, 1958 s.7"
+    ],
+    "hybrid_all": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.4",
+     "The Punjab Tenancy Act, 1887. s.110"
+    ],
+    "hybrid_all_gated": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.4",
+     "The Punjab Tenancy Act, 1887. s.110"
+    ]
+   }
+  },
+  {
+   "id": "q42",
+   "question": "A cheque given to me bounced because there was no money in the account",
+   "expected": [
+    "NI:138"
+   ],
+   "ranks": {
+    "keyword_corpus_only": 1,
+    "production_approx": 1,
+    "bm25": 1,
+    "dense_lsa": 4,
+    "rrf_bm25_dense": 1,
+    "rrf_prod_dense": 1,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 1,
+    "hybrid_all_gated": 1
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Negotiable Instruments Act 1881 s.138",
+     "Negotiable Instruments Act 1881 s.139",
+     "Negotiable Instruments Act 1881 s.141"
+    ],
+    "production_approx": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Bengal Land Revenue Sales Act, 1 s.22",
+     "The Major Port Authorities Act, 2021 s.43"
+    ],
+    "bm25": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Insurance Act, 1938 s.64VB",
+     "The Government Securities Act, 2006 s.27"
+    ],
+    "dense_lsa": [
+     "The Transfer of Property Act, 1882 s.121",
+     "The Negotiable Instruments Act, 1881 s.45",
+     "The Tea Act, 1953 s.29"
+    ],
+    "rrf_bm25_dense": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Negotiable Instruments Act, 1881 s.45",
+     "The Negotiable Instruments Act, 1881 s.44"
+    ],
+    "rrf_prod_dense": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Punjab Tenancy Act, 1887. s.95",
+     "The Negotiable Instruments Act, 1881 s.45"
+    ],
+    "rrf_prod_bm25": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Government Securities Act, 2006 s.27",
+     "The Negotiable Instruments Act, 1881 s.84"
+    ],
+    "hybrid_all": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Punjab Tenancy Act, 1887. s.95",
+     "The Negotiable Instruments Act, 1881 s.45"
+    ],
+    "hybrid_all_gated": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Punjab Tenancy Act, 1887. s.95",
+     "The Negotiable Instruments Act, 1881 s.45"
+    ]
+   }
+  },
+  {
+   "id": "q43",
+   "question": "The builder has delayed giving me possession of my flat for years and I want my money back",
+   "expected": [
+    "RERA:18"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.69",
+     "Bharatiya Nagarik Suraksha Sanhita 2 s.479"
+    ],
+    "production_approx": [
+     "The Specific Relief Act, 1963 s.22",
+     "The Coinage Act, 2011 s.14",
+     "The Specific Relief Act, 1963 s.8"
+    ],
+    "bm25": [
+     "The Chutia Nagpur Encumbered Estates s.18",
+     "The Oudh Taluqdar's Relief Act, 1870 s.19",
+     "The Coinage Act, 2011 s.14"
+    ],
+    "dense_lsa": [
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prevention of Money-Laundering A s.4",
+     "The Coinage Act, 2011 s.14"
+    ],
+    "rrf_bm25_dense": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Bharatiya Nyaya Sanhita, 2023 s.315"
+    ],
+    "rrf_prod_dense": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prevention of Money-Laundering A s.3"
+    ],
+    "rrf_prod_bm25": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prize Chits and Money Circulatio s.5"
+    ],
+    "hybrid_all": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prize Chits and Money Circulatio s.5"
+    ],
+    "hybrid_all_gated": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prize Chits and Money Circulatio s.5"
+    ]
+   }
+  },
+  {
+   "id": "q44",
+   "question": "Where can I complain against a property developer who has not delivered my apartment",
+   "expected": [
+    "RERA:31"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Apartment Ownership Act, 1 s.9",
+     "The Delhi Apartment Ownership Act, 1 s.15"
+    ],
+    "bm25": [
+     "The Delhi Apartment Ownership Act, 1 s.13",
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Apartment Ownership Act, 1 s.5"
+    ],
+    "dense_lsa": [
+     "The Indian Easements Act, 1882 s.12",
+     "The Indian Wireless Telegraphy Act,  s.8",
+     "The Kalakshetra Foundation Act, 1993 s.26"
+    ],
+    "rrf_bm25_dense": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Kalakshetra Foundation Act, 1993 s.7",
+     "The Requisitioning and Acquisition o s.4"
+    ],
+    "rrf_prod_dense": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Bharatiya Vayuyan Adhiniyam, 202 s.16",
+     "The Delhi Police Act, 1978 s.68"
+    ],
+    "rrf_prod_bm25": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Apartment Ownership Act, 1 s.5",
+     "The Delhi Apartment Ownership Act, 1 s.12"
+    ],
+    "hybrid_all": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Police Act, 1978 s.68",
+     "The Bharatiya Vayuyan Adhiniyam, 202 s.16"
+    ],
+    "hybrid_all_gated": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Apartment Ownership Act, 1 s.5",
+     "The Delhi Apartment Ownership Act, 1 s.12"
+    ]
+   }
+  },
+  {
+   "id": "q45",
+   "question": "I want to end my marriage and get a divorce",
+   "expected": [
+    "HMA:13"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 4,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Hindu Marriage Act, 1955 s.14",
+     "The Special Marriage Act, 1954 s.29",
+     "The Parsi Marriage and Divorce Act,  s.32"
+    ],
+    "bm25": [
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Parsi Marriage and Divorce Act,  s.4",
+     "The Hindu Marriage Act, 1955 s.13B"
+    ],
+    "dense_lsa": [
+     "The Divorce Act, 1869 s.58",
+     "The Hindu Marriage Act, 1955 s.7",
+     "The Indian Christian Marriage Act, 1 s.4"
+    ],
+    "rrf_bm25_dense": [
+     "The Parsi Marriage and Divorce Act,  s.4",
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Parsi Marriage and Divorce Act,  s.30"
+    ],
+    "rrf_prod_dense": [
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Parsi Marriage and Divorce Act,  s.4",
+     "The Parsi Marriage and Divorce Act,  s.3"
+    ],
+    "rrf_prod_bm25": [
+     "The Hindu Marriage Act, 1955 s.14",
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Special Marriage Act, 1954 s.29"
+    ],
+    "hybrid_all": [
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Parsi Marriage and Divorce Act,  s.4",
+     "The Hindu Marriage Act, 1955 s.13B"
+    ],
+    "hybrid_all_gated": [
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Parsi Marriage and Divorce Act,  s.4",
+     "The Hindu Marriage Act, 1955 s.13B"
+    ]
+   }
+  },
+  {
+   "id": "q46",
+   "question": "Can a daughter claim a share in her father's ancestral family property",
+   "expected": [
+    "HSA:6"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 5,
+    "bm25": 3,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 4,
+    "rrf_prod_dense": 2,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": 2,
+    "hybrid_all_gated": 2
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Transfer of Property Act, 1882 s.47",
+     "The Hindu Minority and Guardianship  s.12",
+     "The Code of Civil Procedure, 1908 s.53"
+    ],
+    "bm25": [
+     "The Hindu Adoptions and Maintenance  s.19",
+     "The Maintenance and Welfare of Paren s.2",
+     "The Hindu Succession Act, 1956 s.6"
+    ],
+    "dense_lsa": [
+     "The Indian Succession Act, 1925 s.49",
+     "The Hindu Succession Act, 1956 s.7",
+     "The Police Act, 1861 s.27"
+    ],
+    "rrf_bm25_dense": [
+     "The Hindu Succession Act, 1956 s.29",
+     "The Hindu Succession Act, 1956 s.7",
+     "The Indian Succession Act, 1925 s.49"
+    ],
+    "rrf_prod_dense": [
+     "The Hindu Succession Act, 1956 s.7",
+     "The Hindu Succession Act, 1956 s.6",
+     "The Indian Succession Act, 1925 s.51"
+    ],
+    "rrf_prod_bm25": [
+     "The Hindu Adoptions and Maintenance  s.19",
+     "The Hindu Succession Act, 1956 s.6",
+     "The Code of Civil Procedure, 1908 s.53"
+    ],
+    "hybrid_all": [
+     "The Hindu Succession Act, 1956 s.7",
+     "The Hindu Succession Act, 1956 s.6",
+     "The Hindu Adoptions and Maintenance  s.19"
+    ],
+    "hybrid_all_gated": [
+     "The Hindu Succession Act, 1956 s.7",
+     "The Hindu Succession Act, 1956 s.6",
+     "The Hindu Adoptions and Maintenance  s.19"
+    ]
+   }
+  },
+  {
+   "id": "q47",
+   "question": "A man sexually abused a ten year old child",
+   "expected": [
+    "POCSO:4",
+    "POCSO:7"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 1,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.97",
+     "The Juvenile Justice (Care and Prote s.75",
+     "The Protection of Children from Sexu s.15"
+    ],
+    "bm25": [
+     "The Immoral Traffic (Prevention) Act s.6",
+     "The Bharatiya Nyaya Sanhita, 2023 s.75",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81"
+    ],
+    "dense_lsa": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.20",
+     "The Juvenile Justice (Care and Prote s.84",
+     "The Bharatiya Nyaya Sanhita, 2023 s.93"
+    ],
+    "rrf_bm25_dense": [
+     "The Protection of Children from Sexu s.7",
+     "The Protection of Children from Sexu s.3",
+     "The Juvenile Justice (Care and Prote s.75"
+    ],
+    "rrf_prod_dense": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.97",
+     "The Juvenile Justice (Care and Prote s.76",
+     "The Juvenile Justice (Care and Prote s.75"
+    ],
+    "rrf_prod_bm25": [
+     "The Juvenile Justice (Care and Prote s.75",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Bharatiya Nyaya Sanhita, 2023 s.75"
+    ],
+    "hybrid_all": [
+     "The Juvenile Justice (Care and Prote s.75",
+     "The Bharatiya Nyaya Sanhita, 2023 s.97",
+     "The Juvenile Justice (Care and Prote s.76"
+    ],
+    "hybrid_all_gated": [
+     "The Juvenile Justice (Care and Prote s.75",
+     "The Bharatiya Nyaya Sanhita, 2023 s.97",
+     "The Juvenile Justice (Care and Prote s.76"
+    ]
+   }
+  },
+  {
+   "id": "q48",
+   "question": "I cannot afford a lawyer, can I get free legal help",
+   "expected": [
+    "LSA:12"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": null,
+    "bm25": null,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": null,
+    "hybrid_all": null,
+    "hybrid_all_gated": null
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Constitution of India s.22",
+     "Code of Criminal Procedure 1973 s.436"
+    ],
+    "production_approx": [
+     "The Negotiable Instruments Act, 1881 s.57",
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27"
+    ],
+    "bm25": [
+     "The Protection of Children from Sexu s.40",
+     "The Juvenile Justice (Care and Prote s.38",
+     "The Energy Conservation Act, 2001 s.17"
+    ],
+    "dense_lsa": [
+     "The Lokpal and Lokayuktas Act, 2013 s.55",
+     "The Family Courts Act, 1984 s.13",
+     "The Information Technology Act, 2000 s.59"
+    ],
+    "rrf_bm25_dense": [
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27",
+     "The Lokpal and Lokayuktas Act, 2013 s.55"
+    ],
+    "rrf_prod_dense": [
+     "The Protection of Children from Sexu s.40",
+     "The Negotiable Instruments Act, 1881 s.57",
+     "The Mental Healthcare Act, 2017 s.27"
+    ],
+    "rrf_prod_bm25": [
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27",
+     "The Bharatiya Nagarik Suraksha Sanhi s.44"
+    ],
+    "hybrid_all": [
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27",
+     "The Bharatiya Nagarik Suraksha Sanhi s.44"
+    ],
+    "hybrid_all_gated": [
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27",
+     "The Bharatiya Nagarik Suraksha Sanhi s.44"
+    ]
+   }
+  },
+  {
+   "id": "q49",
+   "question": "The seller delivered goods that are not of the quality he promised",
+   "expected": [
+    "SOGA:16",
+    "SOGA:15"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 2,
+    "bm25": 1,
+    "dense_lsa": null,
+    "rrf_bm25_dense": null,
+    "rrf_prod_dense": null,
+    "rrf_prod_bm25": 1,
+    "hybrid_all": 4,
+    "hybrid_all_gated": 4
+   },
+   "top": {
+    "keyword_corpus_only": [
+     "Consumer Protection Act 2019 s.35",
+     "Consumer Protection (E-Commerce) Rul s.5",
+     "Bharatiya Nyaya Sanhita 2023 s.318"
+    ],
+    "production_approx": [
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.16",
+     "The Railways Act, 1989 s.94"
+    ],
+    "bm25": [
+     "The Sale of Goods Act, 1930 s.16",
+     "The Sale of Goods Act, 1930 s.31",
+     "The Indian Contract Act, 1872 s.127"
+    ],
+    "dense_lsa": [
+     "The Sale of Goods Act, 1930 s.42",
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.49"
+    ],
+    "rrf_bm25_dense": [
+     "The Sale of Goods Act, 1930 s.42",
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.37"
+    ],
+    "rrf_prod_dense": [
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.41",
+     "The Sale of Goods Act, 1930 s.44"
+    ],
+    "rrf_prod_bm25": [
+     "The Sale of Goods Act, 1930 s.16",
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.31"
+    ],
+    "hybrid_all": [
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.44",
+     "The Sale of Goods Act, 1930 s.31"
+    ],
+    "hybrid_all_gated": [
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.44",
+     "The Sale of Goods Act, 1930 s.31"
+    ]
+   }
+  },
+  {
+   "id": "q50",
+   "question": "The other party broke our contract and I want compensation for my loss",
+   "expected": [
+    "ICA:73"
+   ],
+   "ranks": {
+    "keyword_corpus_only": null,
+    "production_approx": 2,
+    "bm25": 2,
+    "dense_lsa": null,
+    "rrf_bm25_dense": 3,
+    "rrf_prod_dense": 4,
+    "rrf_prod_bm25": 2,
+    "hybrid_all": 2,
+    "hybrid_all_gated": 2
+   },
+   "top": {
+    "keyword_corpus_only": [],
+    "production_approx": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.75"
+    ],
+    "bm25": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.54"
+    ],
+    "dense_lsa": [
+     "The Indian Contract Act, 1872 s.75",
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.22"
+    ],
+    "rrf_bm25_dense": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.75",
+     "The Indian Contract Act, 1872 s.73"
+    ],
+    "rrf_prod_dense": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.75",
+     "The Indian Contract Act, 1872 s.22"
+    ],
+    "rrf_prod_bm25": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.54"
+    ],
+    "hybrid_all": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.75"
+    ],
+    "hybrid_all_gated": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.75"
+    ]
+   }
+  },
+  {
+   "id": "n01",
+   "question": "What is a good recipe for chicken biryani",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n02",
+   "question": "Who won the cricket world cup last year",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all"
+   ]
+  },
+  {
+   "id": "n03",
+   "question": "How do I fix my laptop that will not switch on",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n04",
+   "question": "Best places to visit in Goa in December",
+   "answered_by": [
+    "production_approx",
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n05",
+   "question": "How do I learn to play the guitar quickly",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n06",
+   "question": "What is the capital city of Australia",
+   "answered_by": [
+    "production_approx",
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n07",
+   "question": "Suggest a workout plan to lose weight",
+   "answered_by": [
+    "production_approx",
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n08",
+   "question": "How to bake a chocolate cake without eggs",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n09",
+   "question": "Which phone has the best camera under twenty thousand rupees",
+   "answered_by": [
+    "production_approx",
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  },
+  {
+   "id": "n10",
+   "question": "How do I grow tomatoes on my balcony",
+   "answered_by": [
+    "bm25",
+    "dense_lsa",
+    "rrf_bm25_dense",
+    "rrf_prod_dense",
+    "rrf_prod_bm25",
+    "hybrid_all",
+    "hybrid_all_gated"
+   ]
+  }
+ ]
+}

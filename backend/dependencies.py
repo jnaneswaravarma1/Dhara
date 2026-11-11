@@ -14,7 +14,7 @@ from typing import Optional
 
 from fastapi import HTTPException, Header
 from motor.motor_asyncio import AsyncIOMotorClient
-from emergentintegrations.llm.chat import LlmChat, UserMessage
+from services.ai_gateway import send_once, RETRIEVAL_KEYWORD_SPEC
 
 from config.settings import (
     MONGO_URL, DB_NAME, CORPUS_DB_NAME,
@@ -235,14 +235,13 @@ async def translate_for_retrieval(text: str) -> str:
 
     async def _attempt(attempt_num: int):
         try:
-            translator = LlmChat(
-                api_key=EMERGENT_LLM_KEY,
-                session_id=f"rtranslate-{uuid.uuid4()}",
-                system_message=_TRANSLATE_SYSTEM,
-            ).with_model("anthropic", "claude-haiku-4-5")
-            result = await _aio.wait_for(
-                translator.send_message(UserMessage(text=text)),
-                timeout=12.0,
+            result = await send_once(
+                f"rtranslate-{uuid.uuid4()}",
+                _TRANSLATE_SYSTEM,
+                text,
+                spec=RETRIEVAL_KEYWORD_SPEC,
+                caller="retrieval_translate",
+                timeout_s=RETRIEVAL_KEYWORD_SPEC.timeout_s,
             )
             out = str(result or "").strip().strip('"').strip()
             if out and _is_mostly_english(out) and out != text:

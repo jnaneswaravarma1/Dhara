@@ -22,6 +22,7 @@ Sprint-brief mapping:
 """
 from __future__ import annotations
 
+import asyncio
 import os
 import time
 import uuid
@@ -40,6 +41,14 @@ from config.settings import (
     TRANSLATE_MODEL,
     SCAN_PROVIDER,
     SCAN_MODEL,
+    TASK_PROVIDER,
+    QUERY_PARSE_MODEL,
+    RETRIEVAL_KEYWORD_MODEL,
+    FIR_EXTRACT_MODEL,
+    FIR_DRAFT_MODEL,
+    FOLLOWUP_MODEL,
+    VISITOR_TRANSLATE_MODEL,
+    INTAKE_SUMMARY_MODEL,
 )
 
 logger = logging.getLogger("ai_gateway")
@@ -53,6 +62,7 @@ class ModelSpec:
     model: str
     timeout_s: float = 60.0
     max_retries: int = 1
+    max_tokens: Optional[int] = None   # applied via .with_params(max_tokens=...) when set
 
 
 PRIMARY = ModelSpec(
@@ -85,6 +95,19 @@ SCAN_SPEC = ModelSpec(
     max_retries=0,
 )
 
+# One-shot task specs for call sites that previously hard-coded a model string.
+# Models come from config/settings.py (env-overridable, defaults unchanged).
+# timeout_s values below are the timeouts those call sites already enforced
+# (query parser 10 s, retrieval keyword translation 12 s); the others never had one.
+QUERY_PARSE_SPEC = ModelSpec(TASK_PROVIDER, QUERY_PARSE_MODEL, timeout_s=10.0, max_retries=0)
+RETRIEVAL_KEYWORD_SPEC = ModelSpec(TASK_PROVIDER, RETRIEVAL_KEYWORD_MODEL, timeout_s=12.0, max_retries=0)
+FIR_EXTRACT_SPEC = ModelSpec(TASK_PROVIDER, FIR_EXTRACT_MODEL, max_retries=0, max_tokens=600)
+FIR_CORRECTION_SPEC = ModelSpec(TASK_PROVIDER, FIR_EXTRACT_MODEL, max_retries=0, max_tokens=400)
+FIR_DRAFT_SPEC = ModelSpec(TASK_PROVIDER, FIR_DRAFT_MODEL, max_retries=0, max_tokens=2500)
+FOLLOWUP_SPEC = ModelSpec(TASK_PROVIDER, FOLLOWUP_MODEL, max_retries=0)
+VISITOR_TRANSLATE_SPEC = ModelSpec(TASK_PROVIDER, VISITOR_TRANSLATE_MODEL, max_retries=0)
+INTAKE_SUMMARY_SPEC = ModelSpec(TASK_PROVIDER, INTAKE_SUMMARY_MODEL, max_retries=0)
+
 # ── API-key resolver ──────────────────────────────────────────────────────────
 # `EMERGENT_OFF=1` flips the app onto a company-owned key (COMPANY_LLM_KEY),
 # giving us a smooth exit from the Emergent runtime with zero code changes in
@@ -116,11 +139,72 @@ def build_chat(
         build_chat(session_id=..., system_message=...)
     — same object contract, but the model is picked centrally.
     """
-    return LlmChat(
+    chat = LlmChat(
         api_key=_api_key(),
         session_id=session_id,
         system_message=system_message,
     ).with_model(spec.provider, spec.model)
+    if spec.max_tokens is not None:
+        chat = chat.with_params(max_tokens=spec.max_tokens)
+    return chat
+
+
+async def send_once(
+    session_id: str,
+    system_message: str,
+    user_text: str,
+    *,
+    spec: ModelSpec,
+    caller: str = "unknown",
+    timeout_s: Optional[float] = None,
+) -> str:
+    """One-shot call on a task spec, with NO fallback model.
+
+    Drop-in for the `LlmChat(...).with_model(...).send_message(...)` blocks that
+    used to live in routers: it RAISES on failure exactly as they did (the call
+    site keeps its own except/fallback behaviour) but every call now gets the
+    gateway's model selection, key resolution and structured log line.
+    Pass `timeout_s=spec.timeout_s` to enforce the spec's timeout
+    (asyncio.TimeoutError is raised on expiry).
+    """
+    error_id = str(uuid.uuid4())[:8]
+    t0 = time.time()
+    try:
+        chat = build_chat(session_id, system_message, spec=spec)
+        coro = chat.send_message(UserMessage(text=user_text))
+        reply = await (asyncio.wait_for(coro, timeout=timeout_s) if timeout_s else coro)
+    except Exception as e:
+        _log_call(caller, spec, "error", None, error_id, _short(e))
+        raise
+    _log_call(caller, spec, "ok", time.time() - t0, error_id, None)
+    return str(reply or "")
+
+
+async def collect_stream(
+    session_id: str,
+    system_message: str,
+    user_text: str,
+    *,
+    spec: ModelSpec,
+    caller: str = "unknown",
+) -> str:
+    """Stream a reply on a task spec and return the full text (no fallback model).
+    Raises on failure, like `send_once`."""
+    error_id = str(uuid.uuid4())[:8]
+    t0 = time.time()
+    out = ""
+    try:
+        chat = build_chat(session_id, system_message, spec=spec)
+        async for ev in chat.stream_message(UserMessage(text=user_text)):
+            if isinstance(ev, TextDelta):
+                out += ev.content
+            elif isinstance(ev, StreamDone):
+                break
+    except Exception as e:
+        _log_call(caller, spec, "stream_error", None, error_id, _short(e))
+        raise
+    _log_call(caller, spec, "ok_stream", time.time() - t0, error_id, None)
+    return out
 
 
 async def send_with_fallback(

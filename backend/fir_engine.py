@@ -29,7 +29,7 @@ from typing import Optional
 import httpx
 import logging
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage
+from services.ai_gateway import send_once, FIR_EXTRACT_SPEC, FIR_CORRECTION_SPEC, FIR_DRAFT_SPEC
 
 logger = logging.getLogger("fir_engine")
 
@@ -1312,16 +1312,13 @@ If the narrative says 'yesterday', set incident_date to {(date.today() - timedel
 async def extract_slots_llm(narrative: str, llm_key: str) -> dict:
     """Extract slots from free narrative using Claude Haiku (cost-efficient)."""
     try:
-        chat = (
-            LlmChat(
-                api_key=llm_key,
-                session_id=f"fir-extract-{uuid.uuid4()}",
-                system_message=_make_extract_sys(),
-            )
-            .with_model("anthropic", "claude-haiku-4-5")
-            .with_params(max_tokens=600)
+        result = await send_once(
+            f"fir-extract-{uuid.uuid4()}",
+            _make_extract_sys(),
+            f"NARRATIVE:\n{narrative[:2000]}",
+            spec=FIR_EXTRACT_SPEC,
+            caller="fir_extract_slots",
         )
-        result = await chat.send_message(UserMessage(text=f"NARRATIVE:\n{narrative[:2000]}"))
         raw = (result or "").strip()
         # Strip possible markdown fences
         if raw.startswith("```"):
@@ -1368,16 +1365,13 @@ async def extract_correction_llm(correction_text: str, llm_key: str) -> dict:
     """Extract ONLY the explicitly-corrected canonical fields from a free-text
     correction sentence. Never returns the raw sentence itself as a value."""
     try:
-        chat = (
-            LlmChat(
-                api_key=llm_key,
-                session_id=f"fir-correct-{uuid.uuid4()}",
-                system_message=_make_correction_sys(),
-            )
-            .with_model("anthropic", "claude-haiku-4-5")
-            .with_params(max_tokens=400)
+        result = await send_once(
+            f"fir-correct-{uuid.uuid4()}",
+            _make_correction_sys(),
+            correction_text[:800],
+            spec=FIR_CORRECTION_SPEC,
+            caller="fir_extract_correction",
         )
-        result = await chat.send_message(UserMessage(text=correction_text[:800]))
         raw = (result or "").strip()
         if raw.startswith("```"):
             raw = re.sub(r"^```[^\n]*\n?", "", raw)
@@ -1528,16 +1522,14 @@ Suggested BNS sections are indicative only \u2014 the investigating officer dete
 FREE LEGAL AID: NALSA 15100 | Women Helpline 181 | Cybercrime 1930 | Police 100"""
 
     try:
-        chat = (
-            LlmChat(
-                api_key=llm_key,
-                session_id=f"fir-draft-{uuid.uuid4()}",
-                system_message=_DRAFT_SYS,
-            )
-            .with_model("anthropic", "claude-sonnet-4-6")
-            .with_params(max_tokens=2500)
+        reply = await send_once(
+            f"fir-draft-{uuid.uuid4()}",
+            _DRAFT_SYS,
+            prompt,
+            spec=FIR_DRAFT_SPEC,
+            caller="fir_generate_draft",
         )
-        return (await chat.send_message(UserMessage(text=prompt)) or "").strip()
+        return (reply or "").strip()
     except Exception as e:
         logger.error(f"[generate_draft] LLM failed: {e}")
         return _fallback_draft(slots, sec_text, ev_text, date_str, place_display)

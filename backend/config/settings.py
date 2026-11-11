@@ -33,6 +33,18 @@ TRANSLATE_MODEL    = os.getenv("TRANSLATE_MODEL",    "gpt-4o-mini")
 SCAN_PROVIDER       = os.getenv("SCAN_PROVIDER",      "openai")
 SCAN_MODEL          = os.getenv("SCAN_MODEL",         "gpt-4o-mini")
 
+# Task-specific text models that used to be hard-coded at their call sites.
+# Defaults are EXACTLY the strings those call sites used, so behaviour is
+# unchanged until an env var overrides one. All run on TASK_PROVIDER.
+TASK_PROVIDER             = os.getenv("TASK_PROVIDER",             "anthropic")
+QUERY_PARSE_MODEL         = os.getenv("QUERY_PARSE_MODEL",         "claude-haiku-4-5")
+RETRIEVAL_KEYWORD_MODEL   = os.getenv("RETRIEVAL_KEYWORD_MODEL",   "claude-haiku-4-5")
+FIR_EXTRACT_MODEL         = os.getenv("FIR_EXTRACT_MODEL",         "claude-haiku-4-5")
+FIR_DRAFT_MODEL           = os.getenv("FIR_DRAFT_MODEL",           "claude-sonnet-4-6")
+FOLLOWUP_MODEL            = os.getenv("FOLLOWUP_MODEL",            "claude-sonnet-4-5-20250929")
+VISITOR_TRANSLATE_MODEL   = os.getenv("VISITOR_TRANSLATE_MODEL",   "claude-haiku-4-5-20251001")
+INTAKE_SUMMARY_MODEL      = os.getenv("INTAKE_SUMMARY_MODEL",      "claude-sonnet-4-5-20250929")
+
 # ── Auth / JWT ─────────────────────────────────────────────────────────────────
 JWT_SECRET   = os.environ["JWT_SECRET"]
 JWT_ALG      = "HS256"

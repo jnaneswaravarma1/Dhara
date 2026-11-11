@@ -14,7 +14,7 @@ from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Request
 from fastapi.responses import StreamingResponse, Response as _Resp
 from pydantic import BaseModel
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage
+from services.ai_gateway import send_once, FOLLOWUP_SPEC
 from dependencies import db, corpus_db, current_user, current_user_optional, logger
 from config.settings import EMERGENT_LLM_KEY
 from fir_engine import (
@@ -194,13 +194,13 @@ Reply ONLY with a valid JSON array of strings, nothing else:
 
     try:
         import json as _json
-        chat = LlmChat(
-            api_key=EMERGENT_LLM_KEY,
-            session_id=f"chat-followup-{id(body)}",
-            system_message="Generate short follow-up questions as a JSON array only."
-        ).with_model("anthropic", "claude-sonnet-4-5-20250929")
-
-        result = await chat.send_message(UserMessage(text=prompt))
+        result = await send_once(
+            f"chat-followup-{id(body)}",
+            "Generate short follow-up questions as a JSON array only.",
+            prompt,
+            spec=FOLLOWUP_SPEC,
+            caller="chat_followup",
+        )
         raw = (result or "[]").strip()
 
         # Find JSON array in response

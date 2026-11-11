@@ -12,7 +12,7 @@ import uuid
 import logging
 from typing import Optional
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage
+from services.ai_gateway import send_once, QUERY_PARSE_SPEC
 
 from engine.models import LegalQuery, Jurisdiction
 
@@ -158,15 +158,16 @@ async def parse_query(
 
     async def _attempt() -> Optional[LegalQuery]:
         try:
-            chat = LlmChat(
-                api_key=llm_key,
-                session_id=f"qparse-{uuid.uuid4().hex[:8]}",
-                system_message=_QUERY_PARSER_SYSTEM,
-            ).with_model("anthropic", "claude-haiku-4-5")
-
-            raw = await asyncio.wait_for(
-                chat.send_message(UserMessage(text=prompt)),
-                timeout=10.0,
+            # Routed through the AI gateway (model/key/timeout come from
+            # services/ai_gateway.QUERY_PARSE_SPEC; `llm_key` is kept in the
+            # signature for backward compatibility but the gateway resolves the key).
+            raw = await send_once(
+                f"qparse-{uuid.uuid4().hex[:8]}",
+                _QUERY_PARSER_SYSTEM,
+                prompt,
+                spec=QUERY_PARSE_SPEC,
+                caller="query_parser",
+                timeout_s=QUERY_PARSE_SPEC.timeout_s,
             )
             raw_str = str(raw or "").strip()
 

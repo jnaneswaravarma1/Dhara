@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
+from services.ai_gateway import collect_stream, VISITOR_TRANSLATE_SPEC
 from dependencies import current_user
 
 logger = logging.getLogger(__name__)
@@ -86,20 +86,15 @@ async def translate(
     )
 
     try:
-        chat = (
-            LlmChat(
-                api_key=EMERGENT_KEY,
-                session_id=str(uuid.uuid4()),
-                system_message=system,
-            ).with_model("anthropic", "claude-haiku-4-5-20251001")
+        # Routed through the AI gateway (model from VISITOR_TRANSLATE_SPEC);
+        # streamed tokens are collected into a single string.
+        translated = await collect_stream(
+            str(uuid.uuid4()),
+            system,
+            body.text,
+            spec=VISITOR_TRANSLATE_SPEC,
+            caller="visitor_translate",
         )
-        # Collect streamed tokens into a single string
-        translated = ""
-        async for event in chat.stream_message(UserMessage(text=body.text)):
-            if isinstance(event, TextDelta):
-                translated += event.content
-            elif isinstance(event, StreamDone):
-                break
         translated = translated.strip()
         if not translated:
             raise ValueError("empty translation")
