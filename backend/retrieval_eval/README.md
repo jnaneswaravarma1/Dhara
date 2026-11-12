@@ -46,6 +46,16 @@ bootstrap 95% intervals + paired differences vs production_approx  ->  results/l
   (q23, q25) were widened after the first run because a second valid section had been missed;
   the numbers did not change. Add real user questions and have them reviewed before quoting accuracy.
 
+## Abstain gate
+
+`HybridRetriever.search(..., min_top_bm25=14.0)` returns nothing when the best BM25 score is below
+the cutoff. On the 60 questions this cut out-of-scope answers from 10/10 to 4/10 (same as today) and
+cost one context hit (21 -> 20 of 50). The cutoff was hand-set from the same 60 questions, so the
+result is optimistic, and the score only partly separates the two groups (AUC about 0.83). The sweep
+table in results/latest.md shows the trade-off: a higher cutoff refuses more out-of-scope questions
+but also refuses answerable ones. A stronger gate probably needs the query parser's legal-issue output
+or a real embedding model; validate on the advocate-checked questions before relying on it.
+
 ## Plugging in a real embedding model
 
 ```python

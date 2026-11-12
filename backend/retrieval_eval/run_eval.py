@@ -130,18 +130,28 @@ def paired_bootstrap_diff(a: list[int], b: list[int], n_boot: int = 2000, seed: 
 CONFIGS = [
     "production_approx", "bm25", "dense_lsa", "rrf_bm25_dense",
     "rrf_prod_dense", "rrf_prod_bm25", "hybrid_all", "hybrid_all_gated",
+    "rrf_prod_bm25_abstain",
 ]
+
+# Hand-set from looking at the score spread of the 60 questions (NOT tuned out-of-sample).
+# Sections below this top BM25 score are treated as "nothing relevant found".
+ABSTAIN_MIN_TOP = 14.0
 
 
 def run_configs(index: SectionIndex, dense: Optional[LsaBackend], raw_question: str) -> dict[str, list[int]]:
     """Top-K index rows for each database-path configuration for one question."""
     expanded = rl.expand_query(raw_question)
     prod = production_ranking(index, raw_question)
-    bm25_rank = top_ranking(bm25_scores(index, expanded), POOL)
+    bm25_all = bm25_scores(index, expanded)
+    bm25_rank = top_ranking(bm25_all, POOL)
     out = {
         "production_approx": prod["final"][:K],
         "bm25": bm25_rank[:K],
     }
+    out["rrf_prod_bm25_abstain"] = (
+        [] if float(bm25_all.max()) < ABSTAIN_MIN_TOP
+        else [r for r, _ in rrf_fuse([prod["ranked"][:POOL], bm25_rank])[:K]]
+    )
     if dense is None:
         return out
     dense_rank = top_ranking(dense.scores(expanded), POOL, min_score=-1.0)
@@ -221,7 +231,17 @@ def evaluate(index: SectionIndex, dense: Optional[LsaBackend], gold: dict) -> di
                     [1 if (r is not None and r <= 3) else 0 for r in ranks[cfg]])],
                 "context_hit_diff": [round(x, 3) for x in paired_bootstrap_diff(ctx_hit[base], ctx_hit[cfg])],
             }
+    # Threshold sweep for the abstain gate on the plain BM25 top score (answerable questions
+    # that would be refused vs out-of-scope questions that would be refused).
+    def _top(qtext): return float(bm25_scores(index, rl.expand_query(qtext)).max())
+    tops_pos = [_top(q["question"]) for q in gold["questions"]]
+    tops_neg = [_top(q["question"]) for q in gold.get("negatives", [])]
+    sweep = [{"min_top_bm25": t,
+              "answerable_refused": sum(1 for x in tops_pos if x < t),
+              "out_of_scope_refused": sum(1 for x in tops_neg if x < t)}
+             for t in (10.0, 12.0, 14.0, 16.0, 18.0, 20.0)]
     return {
+        "abstain_sweep": sweep,
         "k": K,
         "prod_limit": PROD_LIMIT,
         "n_questions": len(gold["questions"]),
@@ -257,6 +277,10 @@ def to_markdown(rep: dict) -> str:
     for cfg, d in rep["diff_vs_production_approx"].items():
         a, b = d["hit@3_diff"], d["context_hit_diff"]
         lines.append(f"| {cfg} | {a[0]:+.2f} ({a[1]:+.2f} to {a[2]:+.2f}) | {b[0]:+.2f} ({b[1]:+.2f} to {b[2]:+.2f}) |")
+    lines += ["", f"Abstain gate (refuse when the best BM25 score is below the cutoff; used cutoff {ABSTAIN_MIN_TOP}, hand-set from this same data, so optimistic):", "",
+              "| Cutoff | answerable questions refused | out-of-scope refused |", "|---|---|---|"]
+    for r_ in rep["abstain_sweep"]:
+        lines.append(f"| {r_['min_top_bm25']} | {r_['answerable_refused']}/{n} | {r_['out_of_scope_refused']}/{rep['n_negatives']} |")
     lines += ["", "## Questions the answer model would see NO expected section for (production_approx + keyword corpus)", ""]
     for q in rep["per_question"]:
         if "ranks" not in q:

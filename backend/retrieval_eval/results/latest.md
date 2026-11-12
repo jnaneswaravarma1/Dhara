@@ -13,18 +13,31 @@ Database-path index: 33,653 live CENTRAL sections. Production limit = 3 per retr
 | rrf_prod_bm25 | 9/50 | 17/50 | 17/50 | 0.22-0.48 | 0.253 | 21/50 | 10/10 |
 | hybrid_all | 6/50 | 11/50 | 14/50 | 0.16-0.40 | 0.185 | 15/50 | 10/10 |
 | hybrid_all_gated | 5/50 | 10/50 | 13/50 | 0.14-0.38 | 0.162 | 14/50 | 9/10 |
+| rrf_prod_bm25_abstain | 9/50 | 16/50 | 16/50 | 0.20-0.46 | 0.243 | 20/50 | 4/10 |
 
 Paired difference vs production_approx, mean (95% bootstrap interval). An interval that includes 0 means the gap could be noise:
 
 | Config | hit@3 diff | context-hit diff |
 |---|---|---|
 | bm25 | +0.08 (-0.04 to +0.20) | +0.10 (-0.02 to +0.22) |
+| rrf_prod_bm25_abstain | +0.06 (-0.04 to +0.16) | +0.08 (+0.00 to +0.18) |
 | dense_lsa | -0.22 (-0.34 to -0.10) | -0.18 (-0.28 to -0.08) |
 | rrf_bm25_dense | -0.08 (-0.20 to +0.04) | -0.06 (-0.16 to +0.04) |
 | rrf_prod_dense | -0.10 (-0.20 to +0.00) | -0.06 (-0.14 to +0.02) |
 | rrf_prod_bm25 | +0.08 (+0.00 to +0.18) | +0.10 (+0.02 to +0.20) |
 | hybrid_all | -0.04 (-0.14 to +0.06) | -0.02 (-0.10 to +0.06) |
 | hybrid_all_gated | -0.06 (-0.16 to +0.02) | -0.04 (-0.12 to +0.04) |
+
+Abstain gate (refuse when the best BM25 score is below the cutoff; used cutoff 14.0, hand-set from this same data, so optimistic):
+
+| Cutoff | answerable questions refused | out-of-scope refused |
+|---|---|---|
+| 10.0 | 0/50 | 2/10 |
+| 12.0 | 2/50 | 4/10 |
+| 14.0 | 7/50 | 6/10 |
+| 16.0 | 14/50 | 8/10 |
+| 18.0 | 22/50 | 9/10 |
+| 20.0 | 29/50 | 9/10 |
 
 ## Questions the answer model would see NO expected section for (production_approx + keyword corpus)
 

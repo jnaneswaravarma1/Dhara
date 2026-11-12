@@ -121,6 +121,14 @@ def bm25_scores(index: SectionIndex, query: str, k1: float = 1.2, b: float = 0.7
     return scores
 
 
+def top_bm25(index: SectionIndex, query: str) -> float:
+    """Best BM25 score over all sections: a rough 'is there any strong lexical match at all'
+    signal used to decide whether to abstain. It separates answerable from out-of-scope
+    questions only partly (AUC about 0.83 on the 60-question set), so treat it as a first gate."""
+    s = bm25_scores(index, query)
+    return float(s.max()) if len(s) else 0.0
+
+
 # ── Dense backends ────────────────────────────────────────────────────────────
 
 class DenseBackend(Protocol):
@@ -247,7 +255,12 @@ class HybridRetriever:
         return out
 
     def search(self, query: str, limit: int = 5,
-               extra_rankings: Sequence[Sequence[int]] = ()) -> list[dict]:
+               extra_rankings: Sequence[Sequence[int]] = (),
+               min_top_bm25: Optional[float] = None) -> list[dict]:
+        """Fused results. If `min_top_bm25` is set and the best BM25 score for the query is
+        below it, return [] (abstain: nothing relevant enough). See `top_bm25`."""
+        if min_top_bm25 is not None and top_bm25(self.index, query) < min_top_bm25:
+            return []
         r = self.rankings(query)
         fused = rrf_fuse(list(r.values()) + [list(x) for x in extra_rankings], self.rrf_k)
         results = []

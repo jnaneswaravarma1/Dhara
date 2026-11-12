@@ -95,3 +95,15 @@ def test_encoder_backend_and_hybrid_with_a_fake_encoder(index):
     hybrid = HybridRetriever(small, dense, pool=50)
     res = hybrid.search("penalty for offences", limit=3)
     assert 1 <= len(res) <= 3 and all("_ranks" in r for r in res)
+
+
+def test_abstain_gate_refuses_weak_matches_and_keeps_strong_ones(index):
+    from hybrid_retrieval import HybridRetriever, top_bm25
+    hr = HybridRetriever(index)
+    strong = "penalty for riding a two wheeler without a helmet"
+    weak = "recipe for chicken biryani"
+    assert top_bm25(index, strong) > top_bm25(index, weak)
+    cut = (top_bm25(index, strong) + top_bm25(index, weak)) / 2
+    assert hr.search(weak, min_top_bm25=cut) == []
+    assert hr.search(strong, min_top_bm25=cut)          # still answers
+    assert hr.search(weak)                              # no gate -> always answers

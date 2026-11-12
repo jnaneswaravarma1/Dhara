@@ -1,4 +1,36 @@
 {
+ "abstain_sweep": [
+  {
+   "min_top_bm25": 10.0,
+   "answerable_refused": 0,
+   "out_of_scope_refused": 2
+  },
+  {
+   "min_top_bm25": 12.0,
+   "answerable_refused": 2,
+   "out_of_scope_refused": 4
+  },
+  {
+   "min_top_bm25": 14.0,
+   "answerable_refused": 7,
+   "out_of_scope_refused": 6
+  },
+  {
+   "min_top_bm25": 16.0,
+   "answerable_refused": 14,
+   "out_of_scope_refused": 8
+  },
+  {
+   "min_top_bm25": 18.0,
+   "answerable_refused": 22,
+   "out_of_scope_refused": 9
+  },
+  {
+   "min_top_bm25": 20.0,
+   "answerable_refused": 29,
+   "out_of_scope_refused": 9
+  }
+ ],
  "k": 5,
  "prod_limit": 3,
  "n_questions": 50,
@@ -43,6 +75,19 @@
    ],
    "context_hit": 21,
    "answered_out_of_scope": "10/10"
+  },
+  "rrf_prod_bm25_abstain": {
+   "n": 50,
+   "hit@1": 9,
+   "hit@3": 16,
+   "hit@5": 16,
+   "mrr@5": 0.243,
+   "hit@5_ci95": [
+    0.2,
+    0.46
+   ],
+   "context_hit": 20,
+   "answered_out_of_scope": "4/10"
   },
   "dense_lsa": {
    "n": 50,
@@ -136,6 +181,18 @@
     0.22
    ]
   },
+  "rrf_prod_bm25_abstain": {
+   "hit@3_diff": [
+    0.06,
+    -0.04,
+    0.16
+   ],
+   "context_hit_diff": [
+    0.08,
+    0.0,
+    0.18
+   ]
+  },
   "dense_lsa": {
    "hit@3_diff": [
     -0.22,
@@ -209,7 +266,7 @@
    ]
   }
  },
- "mean_ms_per_question_all_configs": 21.2,
+ "mean_ms_per_question_all_configs": 23.1,
  "per_question": [
   {
    "id": "q01",
@@ -222,6 +279,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -243,6 +301,7 @@
      "The Supreme Court Judges (Salaries a s.22",
      "The High Court Judges Salaries and C s.22"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Metro Railways (Operation and Ma s.25",
      "The Metro Railways (Operation and Ma s.24",
@@ -285,6 +344,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -303,6 +363,11 @@
      "The Indian Succession Act, 1925 s.152",
      "The Bharatiya Nyaya Sanhita, 2023 s.84",
      "The Gold Bonds (Immunities and Exemp s.5"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.84",
+     "The Indian Succession Act, 1925 s.152",
+     "The Indian Succession Act, 1925 s.142"
     ],
     "dense_lsa": [
      "The Navy Act, 1957 s.147",
@@ -346,6 +411,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -365,6 +431,7 @@
      "The Protection of Children from Sexu s.11",
      "The Bharatiya Nyaya Sanhita, 2023 s.303"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Indo-Tibetan Border Police Force s.22",
      "The Indo-Tibetan Border Police Force s.27",
@@ -407,6 +474,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -427,6 +495,11 @@
      "The Indian Telegraph Act, 1885 s.6A",
      "The Government of Union Territories  s.9",
      "The Assam Reorganisation (Meghalaya) s.20"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Forward Contracts (Regulation) A s.21",
+     "The Bharatiya Nagarik Suraksha Sanhi s.281"
     ],
     "dense_lsa": [
      "The Asiatic Society Act, 1984 s.15",
@@ -472,6 +545,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 2,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -491,6 +565,11 @@
     "bm25": [
      "The Companies Act, 2013 s.202",
      "The Bharatiya Nyaya Sanhita, 2023 s.75",
+     "The Companies Act, 2013 s.286"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Companies Act, 2013 s.202",
+     "The Companies Act, 2013 s.191",
      "The Companies Act, 2013 s.286"
     ],
     "dense_lsa": [
@@ -537,6 +616,7 @@
     "keyword_corpus_only": null,
     "production_approx": 4,
     "bm25": 2,
+    "rrf_prod_bm25_abstain": 3,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -559,6 +639,11 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.80",
      "The Dowry Prohibition Act, 1961 s.4",
      "The Dowry Prohibition Act, 1961 s.6"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Immoral Traffic (Prevention) Act s.17A",
+     "The Dowry Prohibition Act, 1961 s.4"
     ],
     "dense_lsa": [
      "The Hindu Adoptions and Maintenance  s.14",
@@ -602,6 +687,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 2,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -620,6 +706,11 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.80",
      "The Dowry Prohibition Act, 1961 s.2",
      "The Dowry Prohibition Act, 1961 s.6"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Dowry Prohibition Act, 1961 s.6",
+     "The Bharatiya Nyaya Sanhita, 2023 s.80",
+     "The Dowry Prohibition Act, 1961 s.2"
     ],
     "dense_lsa": [
      "The Parsi Marriage and Divorce Act,  s.3",
@@ -663,6 +754,7 @@
     "keyword_corpus_only": null,
     "production_approx": 3,
     "bm25": 2,
+    "rrf_prod_bm25_abstain": 2,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -684,6 +776,11 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.79",
      "The Bharatiya Nyaya Sanhita, 2023 s.74",
      "The Rights of Persons with Disabilit s.92"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.79",
+     "The Bharatiya Nyaya Sanhita, 2023 s.74",
+     "The Bharatiya Nyaya Sanhita, 2023 s.267"
     ],
     "dense_lsa": [
      "The Bharatiya Nagarik Suraksha Sanhi s.248",
@@ -727,6 +824,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -745,6 +843,11 @@
      "The SAARC Convention (Suppression of s.4",
      "The Bharatiya Nyaya Sanhita, 2023 s.354",
      "The Bharatiya Nyaya Sanhita, 2023 s.325"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Mental Healthcare Act, 2017 s.26",
+     "The SAARC Convention (Suppression of s.4",
+     "The Bharatiya Nyaya Sanhita, 2023 s.354"
     ],
     "dense_lsa": [
      "The Victoria Memorial Act, 1903 s.1",
@@ -786,6 +889,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -806,6 +910,11 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.233",
      "The Indian Contract Act, 1872 s.235",
      "The Companies Act, 2013 s.36"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bengal Land Revenue Sales Act, 1 s.23",
+     "The Bharatiya Nyaya Sanhita, 2023 s.233",
+     "The Indian Contract Act, 1872 s.235"
     ],
     "dense_lsa": [
      "The Promotion and Regulation of Onli s.5",
@@ -849,6 +958,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -865,6 +975,11 @@
      "The Protection of Children from Sexu s.23"
     ],
     "bm25": [
+     "The Bharatiya Nyaya Sanhita, 2023 s.232",
+     "The Protection of Children from Sexu s.23",
+     "The Manipur Municipalities Act, 1994 s.134"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Bharatiya Nyaya Sanhita, 2023 s.232",
      "The Protection of Children from Sexu s.23",
      "The Manipur Municipalities Act, 1994 s.134"
@@ -910,6 +1025,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -932,6 +1048,11 @@
      "The Limited Liability Partnership Ac s.66",
      "The Indian Partnership Act, 1932 s.27",
      "The Indian Partnership Act, 1932 s.15"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Limited Liability Partnership Ac s.66",
+     "The Indian Partnership Act, 1932 s.36",
+     "The Indian Contract Act, 1872 s.194"
     ],
     "dense_lsa": [
      "The Indian Partnership Act, 1932 s.16",
@@ -975,6 +1096,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -995,6 +1117,11 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.308",
      "The Bharatiya Nyaya Sanhita, 2023 s.309",
      "The Bharatiya Nyaya Sanhita, 2023 s.120"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Family Courts Act, 1984 s.3",
+     "The Foreign Marriage Act, 1969 s.11",
+     "The Local Authorities Loans Act, 191 s.3"
     ],
     "dense_lsa": [
      "The Biological Diversity Act, 2002 s.42",
@@ -1039,6 +1166,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1050,6 +1178,11 @@
     "keyword_corpus_only": [],
     "production_approx": [],
     "bm25": [
+     "The Control of National Highways (La s.31",
+     "The Motor Vehicles Act, 1988 s.183",
+     "The Motor Vehicles Act, 1988 s.134"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Control of National Highways (La s.31",
      "The Motor Vehicles Act, 1988 s.183",
      "The Motor Vehicles Act, 1988 s.134"
@@ -1097,6 +1230,7 @@
     "keyword_corpus_only": null,
     "production_approx": 1,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": 1,
@@ -1116,6 +1250,7 @@
      "The Delhi Police Act, 1978 s.105",
      "The Indian Easements Act, 1882 s.18"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Bharatiya Nyaya Sanhita, 2023 s.330",
      "The Manipur Municipalities Act, 1994 s.191",
@@ -1158,6 +1293,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1169,6 +1305,11 @@
     "keyword_corpus_only": [],
     "production_approx": [],
     "bm25": [
+     "The Salary and Allowances of Leaders s.8A",
+     "The Madras District Police Act, 1859 s.39",
+     "The Bharatiya Nyaya Sanhita, 2023 s.302"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Salary and Allowances of Leaders s.8A",
      "The Madras District Police Act, 1859 s.39",
      "The Bharatiya Nyaya Sanhita, 2023 s.302"
@@ -1216,6 +1357,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1231,6 +1373,7 @@
      "The Bharatiya Nyaya Sanhita, 2023 s.81",
      "The Indian Succession Act, 1925 s.183"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Bharatiya Nyaya Sanhita, 2023 s.303",
      "The Bharatiya Nyaya Sanhita, 2023 s.63",
@@ -1272,6 +1415,7 @@
     "keyword_corpus_only": 1,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1292,6 +1436,11 @@
      "The Madras District Police Act, 1859 s.30",
      "The Madras District Police Act, 1859 s.22",
      "The Motor Vehicles Act, 1988 s.48"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Madras District Police Act, 1859 s.30",
+     "The Madras District Police Act, 1859 s.25",
+     "The Manipur (Village Authorities in  s.22"
     ],
     "dense_lsa": [
      "The Police Act, 1861 s.10",
@@ -1336,6 +1485,7 @@
     "keyword_corpus_only": 1,
     "production_approx": 2,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1355,6 +1505,11 @@
     ],
     "bm25": [
      "The Wild Life (Protection) Act, 1972 s.17A",
+     "The Bharatiya Nagarik Suraksha Sanhi s.76",
+     "The Bharatiya Nagarik Suraksha Sanhi s.32"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.81",
      "The Bharatiya Nagarik Suraksha Sanhi s.76",
      "The Bharatiya Nagarik Suraksha Sanhi s.32"
     ],
@@ -1400,6 +1555,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1413,6 +1569,11 @@
     ],
     "production_approx": [],
     "bm25": [
+     "The Armed Forces (Special Powers) Ac s.5",
+     "The Bharatiya Nagarik Suraksha Sanhi s.55",
+     "The Bharatiya Nagarik Suraksha Sanhi s.48"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Armed Forces (Special Powers) Ac s.5",
      "The Bharatiya Nagarik Suraksha Sanhi s.55",
      "The Bharatiya Nagarik Suraksha Sanhi s.48"
@@ -1460,6 +1621,7 @@
     "keyword_corpus_only": null,
     "production_approx": 1,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": 4,
     "rrf_bm25_dense": 2,
     "rrf_prod_dense": 1,
@@ -1482,6 +1644,11 @@
      "The Bharatiya Nagarik Suraksha Sanhi s.480",
      "The Narcotic Drugs and Psychotropic  s.37",
      "The Prevention of Money-Laundering A s.45"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.480",
+     "The Prevention of Money-Laundering A s.45",
+     "The Narcotic Drugs and Psychotropic  s.37"
     ],
     "dense_lsa": [
      "The Narcotic Drugs and Psychotropic  s.37",
@@ -1527,6 +1694,7 @@
     "keyword_corpus_only": null,
     "production_approx": 1,
     "bm25": 2,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": 3,
     "rrf_prod_dense": 3,
@@ -1546,6 +1714,11 @@
     "bm25": [
      "The Divorce Act, 1869 s.21",
      "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Muslim Women (Protection of Righ s.6"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Bharatiya Nagarik Suraksha Sanhi s.144",
+     "The Divorce Act, 1869 s.21",
      "The Muslim Women (Protection of Righ s.6"
     ],
     "dense_lsa": [
@@ -1591,6 +1764,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1606,6 +1780,11 @@
     ],
     "production_approx": [],
     "bm25": [
+     "The Motor Vehicles Act, 1988 s.129",
+     "The Motor Vehicles Act, 1988 s.123",
+     "The Inchek Tyres Limited and Nationa s.25"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Motor Vehicles Act, 1988 s.129",
      "The Motor Vehicles Act, 1988 s.123",
      "The Inchek Tyres Limited and Nationa s.25"
@@ -1650,6 +1829,7 @@
     "keyword_corpus_only": null,
     "production_approx": 3,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1672,6 +1852,11 @@
      "The Motor Vehicles Act, 1988 s.185",
      "The Motor Vehicles Act, 1988 s.203",
      "The Inflammable Substances Act, 1952 s.3"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Motor Vehicles Act, 1988 s.185",
+     "The Motor Vehicles Act, 1988 s.203",
+     "The Motor Vehicles Act, 1988 s.15"
     ],
     "dense_lsa": [
      "The Motor Vehicles Act, 1988 s.10",
@@ -1716,6 +1901,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 3,
+    "rrf_prod_bm25_abstain": 3,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1736,6 +1922,11 @@
     "bm25": [
      "The Motor Vehicles Act, 1988 s.6",
      "The Motor Vehicles Act, 1988 s.18",
+     "The Motor Vehicles Act, 1988 s.3"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Motor Vehicles Act, 1988 s.18",
+     "The Motor Vehicles Act, 1988 s.22",
      "The Motor Vehicles Act, 1988 s.3"
     ],
     "dense_lsa": [
@@ -1781,6 +1972,7 @@
     "keyword_corpus_only": null,
     "production_approx": 3,
     "bm25": 3,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": 3,
@@ -1802,6 +1994,11 @@
      "The Motor Vehicles Act, 1988 s.150",
      "The Motor Vehicles Act, 1988 s.158",
      "The Motor Vehicles Act, 1988 s.196"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Motor Vehicles Act, 1988 s.196",
+     "The Motor Vehicles Act, 1988 s.194",
+     "The Motor Vehicles Act, 1988 s.9"
     ],
     "dense_lsa": [
      "The Insurance Act, 1938 s.32D",
@@ -1845,6 +2042,7 @@
     "keyword_corpus_only": null,
     "production_approx": 1,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": 3,
     "rrf_prod_dense": 1,
@@ -1862,6 +2060,11 @@
      "The Motor Vehicles Act, 1988 s.134"
     ],
     "bm25": [
+     "The Motor Vehicles Act, 1988 s.134",
+     "The Sashastra Seema Bal Act, 2007 s.36",
+     "The Motor Vehicles Act, 1988 s.161"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Motor Vehicles Act, 1988 s.134",
      "The Sashastra Seema Bal Act, 2007 s.36",
      "The Motor Vehicles Act, 1988 s.161"
@@ -1909,6 +2112,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -1926,6 +2130,7 @@
      "The Railways Act, 1989 s.98",
      "The Delhi Municipal Corporation Act, s.370"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Companies Act, 2013 s.304",
      "The Companies Act, 2013 s.320",
@@ -1964,6 +2169,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": 2,
     "rrf_prod_dense": null,
@@ -1983,6 +2189,7 @@
      "The Consumer Protection Act, 2019 s.18",
      "The Energy Conservation Act, 2001 s.53"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Copyright Act, 1957 s.26",
      "The Companies Act, 2013 s.413",
@@ -2021,6 +2228,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2041,6 +2249,11 @@
      "The Consumer Protection Act, 2019 s.89",
      "The Petroleum and Natural Gas Regula s.25",
      "The Consumer Protection Act, 2019 s.90"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Consumer Protection Act, 2019 s.90",
+     "The Food Safety and Standards Act, 2 s.65",
+     "The Consumer Protection Act, 2019 s.91"
     ],
     "dense_lsa": [
      "The Company Secretaries Act, 1980 s.24",
@@ -2084,6 +2297,7 @@
     "keyword_corpus_only": 1,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": 2,
     "rrf_bm25_dense": 1,
     "rrf_prod_dense": null,
@@ -2106,6 +2320,11 @@
      "The New Delhi Municipal Council Act, s.28",
      "The Delhi Municipal Corporation Act, s.81",
      "The Comptroller Auditor-General's (D s.12"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Companies Act, 2013 s.348",
+     "The Repatriation of Prisoners Act, 2 s.5",
+     "The Right to Information Act, 2005 s.13"
     ],
     "dense_lsa": [
      "The Companies Act, 2013 s.402",
@@ -2150,6 +2369,7 @@
     "keyword_corpus_only": 2,
     "production_approx": 1,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": 5,
@@ -2171,6 +2391,11 @@
     "bm25": [
      "The Right to Information Act, 2005 s.7",
      "The Limited Liability Partnership Ac s.38",
+     "The Right to Information Act, 2005 s.18"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.6",
      "The Right to Information Act, 2005 s.18"
     ],
     "dense_lsa": [
@@ -2215,6 +2440,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2236,6 +2462,7 @@
      "The Sarais' Act, 1867 s.6",
      "The Seeds Act, 1966 s.5"
     ],
+    "rrf_prod_bm25_abstain": [],
     "dense_lsa": [
      "The Digital Personal Data Protection s.36",
      "The Information Technology Act, 2000 s.67C",
@@ -2276,6 +2503,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": 4,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2298,6 +2526,11 @@
      "The Right to Information Act, 2005 s.7",
      "The Right to Information Act, 2005 s.10",
      "The Right to Information Act, 2005 s.9"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Right to Information Act, 2005 s.7",
+     "The Right to Information Act, 2005 s.11",
+     "The Right to Information Act, 2005 s.6"
     ],
     "dense_lsa": [
      "The Right to Information Act, 2005 s.10",
@@ -2342,6 +2575,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2362,6 +2596,11 @@
      "The Orphanages and other Charitable  s.17",
      "The Divorce Act, 1869 s.37",
      "The Special Marriage Act, 1954 s.37"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Immoral Traffic (Prevention) Act s.19",
+     "The Divorce Act, 1869 s.30",
+     "The Divorce Act, 1869 s.37"
     ],
     "dense_lsa": [
      "The Administrators-General Act, 1963 s.55",
@@ -2406,6 +2645,7 @@
     "keyword_corpus_only": 1,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2426,6 +2666,11 @@
      "The Hindu Adoptions and Maintenance  s.18",
      "The Mental Healthcare Act, 2017 s.19",
      "The Indian Partnership Act, 1932 s.5"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Hindu Adoptions and Maintenance  s.18",
+     "The Partition Act, 1893 s.4",
+     "The Mental Healthcare Act, 2017 s.19"
     ],
     "dense_lsa": [
      "The Hindu Adoptions and Maintenance  s.18",
@@ -2470,6 +2715,7 @@
     "keyword_corpus_only": null,
     "production_approx": 2,
     "bm25": 5,
+    "rrf_prod_bm25_abstain": 2,
     "dense_lsa": 3,
     "rrf_bm25_dense": 2,
     "rrf_prod_dense": 2,
@@ -2490,6 +2736,11 @@
      "The Sexual Harassment of Women at Wo s.3",
      "The Sexual Harassment of Women at Wo s.25",
      "The Sexual Harassment of Women at Wo s.1"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Sexual Harassment of Women at Wo s.3",
+     "The Sexual Harassment of Women at Wo s.9",
+     "The Sexual Harassment of Women at Wo s.25"
     ],
     "dense_lsa": [
      "The Sexual Harassment of Women at Wo s.16",
@@ -2534,6 +2785,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2552,6 +2804,11 @@
      "The Indian Contract Act, 1872 s.235",
      "The Code on Social Security, 2020 s.86",
      "The Societies Registration Act, 1860 s.11"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Assisted Reproductive Technology s.23",
+     "The Indian Contract Act, 1872 s.235",
+     "The Code on Social Security, 2020 s.86"
     ],
     "dense_lsa": [
      "The Telecommunications Act, 2023. s.5",
@@ -2592,6 +2849,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2613,6 +2871,11 @@
      "The Promotion and Regulation of Onli s.5",
      "The Promotion and Regulation of Onli s.7",
      "The Promotion and Regulation of Onli s.6"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Promotion and Regulation of Onli s.5",
+     "The Promotion and Regulation of Onli s.6",
+     "The Promotion and Regulation of Onli s.14"
     ],
     "dense_lsa": [
      "The Warehousing Corporations Act, 19 s.28",
@@ -2657,6 +2920,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2675,6 +2939,11 @@
      "The Private Security Agencies (Regul s.17",
      "The New Delhi Municipal Council Act, s.184",
      "The Cantonments Act, 2006 s.222"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Cantonments Act, 2006 s.222",
+     "The New Delhi Municipal Council Act, s.184",
+     "The Private Security Agencies (Regul s.4"
     ],
     "dense_lsa": [
      "The Companies Act, 2013 s.378ZB",
@@ -2718,6 +2987,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2736,6 +3006,11 @@
      "The Delhi Rent Control Act, 1958 s.26",
      "The Delhi Rent Control Act, 1958 s.7",
      "The Central Provinces Tenancy Act, 1 s.67"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Central Provinces Tenancy Act, 1 s.67",
+     "The Delhi Rent Control Act, 1958 s.26",
+     "The Delhi Rent Control Act, 1958 s.7"
     ],
     "dense_lsa": [
      "The Central Provinces Tenancy Act, 1 s.67",
@@ -2779,6 +3054,7 @@
     "keyword_corpus_only": 1,
     "production_approx": 1,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": 4,
     "rrf_bm25_dense": 1,
     "rrf_prod_dense": 1,
@@ -2801,6 +3077,11 @@
      "The Negotiable Instruments Act, 1881 s.138",
      "The Insurance Act, 1938 s.64VB",
      "The Government Securities Act, 2006 s.27"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Negotiable Instruments Act, 1881 s.138",
+     "The Government Securities Act, 2006 s.27",
+     "The Negotiable Instruments Act, 1881 s.84"
     ],
     "dense_lsa": [
      "The Transfer of Property Act, 1882 s.121",
@@ -2844,6 +3125,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2865,6 +3147,11 @@
      "The Chutia Nagpur Encumbered Estates s.18",
      "The Oudh Taluqdar's Relief Act, 1870 s.19",
      "The Coinage Act, 2011 s.14"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Coinage Act, 2011 s.14",
+     "The Transfer of Property Act, 1882 s.62",
+     "The Prize Chits and Money Circulatio s.5"
     ],
     "dense_lsa": [
      "The Transfer of Property Act, 1882 s.62",
@@ -2908,6 +3195,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2926,6 +3214,11 @@
      "The Delhi Apartment Ownership Act, 1 s.13",
      "The Delhi Apartment Ownership Act, 1 s.17",
      "The Delhi Apartment Ownership Act, 1 s.5"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Delhi Apartment Ownership Act, 1 s.17",
+     "The Delhi Apartment Ownership Act, 1 s.5",
+     "The Delhi Apartment Ownership Act, 1 s.12"
     ],
     "dense_lsa": [
      "The Indian Easements Act, 1882 s.12",
@@ -2969,6 +3262,7 @@
     "keyword_corpus_only": null,
     "production_approx": 4,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -2987,6 +3281,11 @@
      "The Parsi Marriage and Divorce Act,  s.32B",
      "The Parsi Marriage and Divorce Act,  s.4",
      "The Hindu Marriage Act, 1955 s.13B"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Hindu Marriage Act, 1955 s.14",
+     "The Parsi Marriage and Divorce Act,  s.32B",
+     "The Special Marriage Act, 1954 s.29"
     ],
     "dense_lsa": [
      "The Divorce Act, 1869 s.58",
@@ -3030,6 +3329,7 @@
     "keyword_corpus_only": null,
     "production_approx": 5,
     "bm25": 3,
+    "rrf_prod_bm25_abstain": 2,
     "dense_lsa": null,
     "rrf_bm25_dense": 4,
     "rrf_prod_dense": 2,
@@ -3048,6 +3348,11 @@
      "The Hindu Adoptions and Maintenance  s.19",
      "The Maintenance and Welfare of Paren s.2",
      "The Hindu Succession Act, 1956 s.6"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Hindu Adoptions and Maintenance  s.19",
+     "The Hindu Succession Act, 1956 s.6",
+     "The Code of Civil Procedure, 1908 s.53"
     ],
     "dense_lsa": [
      "The Indian Succession Act, 1925 s.49",
@@ -3092,6 +3397,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": 1,
     "rrf_prod_dense": null,
@@ -3110,6 +3416,11 @@
      "The Immoral Traffic (Prevention) Act s.6",
      "The Bharatiya Nyaya Sanhita, 2023 s.75",
      "The Bharatiya Nyaya Sanhita, 2023 s.81"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Juvenile Justice (Care and Prote s.75",
+     "The Bharatiya Nyaya Sanhita, 2023 s.81",
+     "The Bharatiya Nyaya Sanhita, 2023 s.75"
     ],
     "dense_lsa": [
      "The Bharatiya Nyaya Sanhita, 2023 s.20",
@@ -3153,6 +3464,7 @@
     "keyword_corpus_only": null,
     "production_approx": null,
     "bm25": null,
+    "rrf_prod_bm25_abstain": null,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -3174,6 +3486,11 @@
      "The Protection of Children from Sexu s.40",
      "The Juvenile Justice (Care and Prote s.38",
      "The Energy Conservation Act, 2001 s.17"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Protection of Children from Sexu s.40",
+     "The Mental Healthcare Act, 2017 s.27",
+     "The Bharatiya Nagarik Suraksha Sanhi s.44"
     ],
     "dense_lsa": [
      "The Lokpal and Lokayuktas Act, 2013 s.55",
@@ -3218,6 +3535,7 @@
     "keyword_corpus_only": null,
     "production_approx": 2,
     "bm25": 1,
+    "rrf_prod_bm25_abstain": 1,
     "dense_lsa": null,
     "rrf_bm25_dense": null,
     "rrf_prod_dense": null,
@@ -3240,6 +3558,11 @@
      "The Sale of Goods Act, 1930 s.16",
      "The Sale of Goods Act, 1930 s.31",
      "The Indian Contract Act, 1872 s.127"
+    ],
+    "rrf_prod_bm25_abstain": [
+     "The Sale of Goods Act, 1930 s.16",
+     "The Sale of Goods Act, 1930 s.40",
+     "The Sale of Goods Act, 1930 s.31"
     ],
     "dense_lsa": [
      "The Sale of Goods Act, 1930 s.42",
@@ -3283,6 +3606,7 @@
     "keyword_corpus_only": null,
     "production_approx": 2,
     "bm25": 2,
+    "rrf_prod_bm25_abstain": 2,
     "dense_lsa": null,
     "rrf_bm25_dense": 3,
     "rrf_prod_dense": 4,
@@ -3298,6 +3622,11 @@
      "The Indian Contract Act, 1872 s.75"
     ],
     "bm25": [
+     "The Indian Contract Act, 1872 s.53",
+     "The Indian Contract Act, 1872 s.73",
+     "The Indian Contract Act, 1872 s.54"
+    ],
+    "rrf_prod_bm25_abstain": [
      "The Indian Contract Act, 1872 s.53",
      "The Indian Contract Act, 1872 s.73",
      "The Indian Contract Act, 1872 s.54"
@@ -3378,6 +3707,7 @@
    "answered_by": [
     "production_approx",
     "bm25",
+    "rrf_prod_bm25_abstain",
     "dense_lsa",
     "rrf_bm25_dense",
     "rrf_prod_dense",
@@ -3391,6 +3721,7 @@
    "question": "How do I learn to play the guitar quickly",
    "answered_by": [
     "bm25",
+    "rrf_prod_bm25_abstain",
     "dense_lsa",
     "rrf_bm25_dense",
     "rrf_prod_dense",
@@ -3405,6 +3736,7 @@
    "answered_by": [
     "production_approx",
     "bm25",
+    "rrf_prod_bm25_abstain",
     "dense_lsa",
     "rrf_bm25_dense",
     "rrf_prod_dense",
@@ -3446,6 +3778,7 @@
    "answered_by": [
     "production_approx",
     "bm25",
+    "rrf_prod_bm25_abstain",
     "dense_lsa",
     "rrf_bm25_dense",
     "rrf_prod_dense",
