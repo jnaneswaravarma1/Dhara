@@ -169,14 +169,37 @@ _ACUTE_DANGER_RE = re.compile(
     r"|\b(someone|somebody|a man|he|they|a car|a bike)\s+(is|are|has been|keeps)\s+(following|chasing|stalking)\s+me\b"
     r"|\bmaar\s*(dega|degi|denge|dalega|dalegi|daalega|daalegi|daalenge)\b|\bjaan\s+se\s+maar"
     r"|\bmujhe\s+bachao\b|मुझे\s*बचाओ|मार\s*डालेगा|मार\s*डालेगी"
-    r"|\bmala\s+vachva\b|मला\s*वाचवा)",
+    r"|\bmala\s+vachva\b|मला\s*वाचवा"
+    # B-05 proposal: present-progressive break-in / intruder (English).
+    r"|\b(someone|somebody|a man|men|they|he)\s+(is|are)\s+(breaking|forcing|trying to break|trying to get)\s+(in|into)\b"
+    r"|\b(just|now)\s+broke\s+into\s+my\s+(house|home|room|flat)\b"
+    # B-05 proposal: romanised Hindi / Marathi "is hitting / threatening me" (native-speaker review needed).
+    r"|\b(maar|peet|maarr)\s*(raha|rahi|rahe)\s*(hai|hain)\b"
+    r"|\bmujhe\s+(maar|peet)\s*(raha|rahi|rahe)\b"
+    r"|\bdhamki\s+det\s+(ahe|aahe|aahet)\b|\bmala\s+(maarat|marat)\s+(ahe|aahe)\b)",
     re.I,
 )
+
+# B-05 proposal: a general question about the law ("what is the punishment for
+# beating someone right now") must not trigger the two-condition rule unless
+# the writer puts themselves in it. Safety bias: any first-person marker keeps
+# the old behaviour.
+_LEGAL_QUESTION_RE = re.compile(
+    r"^\s*(what\s+is\s+the\s+(punishment|penalty|law|section)|what\s+does\s+(the\s+)?(law|section)|"
+    r"punishment\s+for|penalty\s+for|is\s+it\s+(a\s+)?(crime|offen[cs]e|illegal)|"
+    r"what\s+happens\s+(if|when)\s+someone)",
+    re.I,
+)
+_FIRST_PERSON_RE = re.compile(r"(\bme\b|\bmy\b|\bmine\b|\bi\b|\bi'm\b|\bim\b|\bus\b|\bour\b|mujhe|mujhko|mera|meri|मुझे|मेरा|मेरी|मला|माझ)", re.I)
 
 
 def _is_immediate_danger(text: str) -> bool:
     t = text or ""
-    return bool((_DANGER_RE.search(t) and _THREAT_RE.search(t)) or _ACUTE_DANGER_RE.search(t))
+    if _ACUTE_DANGER_RE.search(t):
+        return True
+    if _LEGAL_QUESTION_RE.search(t) and not _FIRST_PERSON_RE.search(t):
+        return False
+    return bool(_DANGER_RE.search(t) and _THREAT_RE.search(t))
 
 
 _EMERGENCY_PROMPT = """
