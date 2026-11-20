@@ -193,7 +193,28 @@ _ACUTE_DANGER_RE = re.compile(
     r"|\bbreaking\s+into\s+my\s+(house|home|room|flat)\s*(right\s+now|now)?\b"
     r"|\bmaar\s*(dega|degi|denge|dalega|dalegi|daalega|daalegi|daalenge)\b|\bjaan\s+se\s+maar"
     r"|\bmujhe\s+bachao\b|मुझे\s*बचाओ|मार\s*डालेगा|मार\s*डालेगी"
-    r"|\bmala\s+vachva\b|मला\s*वाचवा)",
+    r"|\bmala\s+vachva\b|मला\s*वाचवा"
+    # JN-01 (B-05 rework): romanised Hindi / Marathi "is hitting / threatening
+    # me" — the Devanagari forms are already in _DANGER_RE but the romanised
+    # spellings had nothing. Native-speaker review needed before merge.
+    r"|\b(maar|peet|maarr)\s*(raha|rahi|rahe)\s*(hai|hain)\b"
+    r"|\bmujhe\s+(maar|peet)\s*(raha|rahi|rahe)\b"
+    r"|\bdhamki\s+det\s+(ahe|aahe|aahet)\b|\bmala\s+(maarat|marat)\s+(ahe|aahe)\b)",
+    re.I,
+)
+
+# JN-01 (B-05 rework): a general question about the law ("what is the
+# punishment for beating someone right now") must not trigger the two-condition
+# rule unless the writer puts themselves in it. Safety bias: any first-person
+# marker keeps the old behaviour, and the acute patterns above always win.
+_LEGAL_QUESTION_RE = re.compile(
+    r"^\s*(what\s+is\s+the\s+(punishment|penalty|law|section)|what\s+does\s+(the\s+)?(law|section)|"
+    r"punishment\s+for|penalty\s+for|is\s+it\s+(a\s+)?(crime|offen[cs]e|illegal)|"
+    r"what\s+happens\s+(if|when)\s+someone)",
+    re.I,
+)
+_FIRST_PERSON_RE = re.compile(
+    r"(\bme\b|\bmy\b|\bmine\b|\bi\b|\bi'm\b|\bim\b|\bus\b|\bour\b|mujhe|mujhko|mera|meri|मुझे|मेरा|मेरी|मला|माझ)",
     re.I,
 )
 
@@ -240,7 +261,11 @@ async def log_refusal_event(
 
 def _is_immediate_danger(text: str) -> bool:
     t = text or ""
-    return bool((_DANGER_RE.search(t) and _THREAT_RE.search(t)) or _ACUTE_DANGER_RE.search(t))
+    if _ACUTE_DANGER_RE.search(t):
+        return True
+    if _LEGAL_QUESTION_RE.search(t) and not _FIRST_PERSON_RE.search(t):
+        return False
+    return bool(_DANGER_RE.search(t) and _THREAT_RE.search(t))
 
 
 _EMERGENCY_PROMPT = """
